@@ -1,0 +1,49 @@
+{
+  "name": "beercompass",
+  "version": "1.0.0",
+  "description": "yoyo redux",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run watch:sass\" \"npm run serve:client\"",
+    "watch:sass": "sass --watch style.sass:index.css",
+    "serve:client": "budo . -d --serve bundle.js --live",
+    "build": "browserify . -o bundle.js -g uglifyify",
+    "test": "browserify test/index.js | node | tap-spec",
+    "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
+    "push": "gh-pages -d dist",
+    "deploy": "npm run build && npm run dist && npm run push"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beercompassinc/beercompass"
+  },
+  "author": "beercompassinc",
+  "license": "Motosoto",
+  "bugs": {
+    "url": "https://github.com/beercompassinc/beercompass/issues"
+  },
+  "homepage": "https://github.com/beercompassinc/beercompass",
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "budo": "^9.2.2",
+    "concurrently": "^3.1.0",
+    "gh-pages": "^0.11.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "redux": "^3.6.0",
+    "sheet-router": "^4.1.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.7.0"
+  }
+}
