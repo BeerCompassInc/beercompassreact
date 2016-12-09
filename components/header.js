@@ -11,8 +11,8 @@ module.exports = ({state , dispatch}) => {
       {checkIfLoggedIn()}
       <div className='logo'>
         <img className={checkRouteForLogo} src="https://cloud.githubusercontent.com/assets/20106637/21035471/34ff658c-be24-11e6-9874-bb9852786797.png"/>
-        <h1>Beer Compass</h1>
       </div>
+      <h1 className="mainTitle">Beer Compass</h1>
       <div className={customClass}>
         <ul>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Home</li>

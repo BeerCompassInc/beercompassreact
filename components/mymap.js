@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from './header'
-import getMap from '../services/map'
+import Maps from '../services/map'
 
 module.exports = ({state, dispatch}) => {
   return(
-    <div>
+    <div style={{width:'100vw', height:'89vh'}}>
       <Header state={state} dispatch={dispatch}/>
-      <h1>MAP</h1>
+      <Maps state={state} />
     </div>
   )
 }

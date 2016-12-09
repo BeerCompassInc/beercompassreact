@@ -15,7 +15,16 @@ const initState = {
   route: '/',
   lastRoute: 'lemon',
   loginDetails: {},
-  newUserDetails: {}
+  newUserDetails: {},
+  location: {lat:-41.2966371, lng:174.77446609999998},
+  markers: [{
+          lat:-50.2966480,
+          lng:176.77446609999998
+        }, {
+          lat:-41.2966371,
+          lng:174.77446609999998
+        }
+    ]
 }
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
