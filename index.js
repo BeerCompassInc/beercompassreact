@@ -19,14 +19,15 @@ const initState = {
   lastRoute: 'lemon',
   loginDetails: {},
   newUserDetails: {},
-  location: {},
+  location: {
+    lat: 40,
+    lng: 174
+  },
   markers: [],
   places: []
 }
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
-
-getAdventures(dispatch)
 
 navigator.geolocation.watchPosition((position) => {
   var pos = {
@@ -35,6 +36,8 @@ navigator.geolocation.watchPosition((position) => {
   }
   dispatch({type:'UPDATE_CURRENT_POS' , payload: pos})
 })
+
+getAdventures(dispatch)
 
 const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
