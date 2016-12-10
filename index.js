@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import Router from 'sheet-router'
+import request from 'superagent'
 
 import reducer from './reducer'
 
@@ -26,6 +27,7 @@ const initState = {
 
 
 
+
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
 
 navigator.geolocation.watchPosition((position) => {
@@ -33,6 +35,7 @@ navigator.geolocation.watchPosition((position) => {
     lat: position.coords.latitude,
     lng: position.coords.longitude
   }
+  enableHighAccuracy: true
   dispatch({type:'UPDATE_CURRENT_POS' , payload: pos})
 })
 

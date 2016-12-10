@@ -1,7 +1,7 @@
 {
   "name": "beercompass",
   "version": "1.0.0",
-  "description": "yoyo redux",
+  "description": "Track you alcoholic adventure",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run watch:sass\" \"npm run serve:client\"",
@@ -41,10 +41,12 @@
     "react-dom": "^15.4.1",
     "react-google-maps": "^4.11.0",
     "redux": "^3.6.0",
+    "script-loader": "^0.7.0",
     "sheet-router": "^4.1.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1",
     "uglifyify": "^3.0.1",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "superagent": "^3.1.0"
   }
 }

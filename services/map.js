@@ -15,6 +15,8 @@ const Map = ({state}) => {
     }
     return <Marker key={i} {...marker} />
   })
+
+  
 console.log('these are the pins ', pins);
 return (
   <GoogleMapLoader
