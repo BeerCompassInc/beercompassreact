@@ -4,7 +4,7 @@ import Maps from '../services/map'
 
 module.exports = ({state, dispatch}) => {
   return(
-    <div style={{width:'100vw', height:600}}>
+    <div style={{width:'100vw', height:'89vh'}}>
       <Header state={state} dispatch={dispatch}/>
       <Maps state={state} />
     </div>
