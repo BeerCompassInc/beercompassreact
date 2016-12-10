@@ -9,9 +9,7 @@ import Login from './components'
 import SignUp from './components/signUp'
 import Play from './components/play'
 import MyMap from './components/mymap'
-
-
-
+import Adventure from './components/myAdventure'
 
 const initState = {
   title: 'Beercompass',
@@ -22,9 +20,6 @@ const initState = {
   location: {},
   markers: []
 }
-
-
-
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
 
@@ -40,7 +35,8 @@ const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
   ['/signUp', (params) => SignUp],
   ['/play', (params) => Play],
-  ['/mymap', (params) => MyMap]
+  ['/mymap', (params) => MyMap],
+  ['/myAdventure', (params) => Adventure]
 ])
 
 
