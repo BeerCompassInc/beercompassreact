@@ -17,6 +17,9 @@ module.exports = (state, { type, payload }) => {
     case 'ADD_ADVENTURES':
       state.places = payload
       return { ...state }
+    case 'TOGGLE_MARKER_DISPLAY':
+      payload.showInfo = !payload.showInfo
+      return { ...state }
     default:
       return { ...state }
   }
