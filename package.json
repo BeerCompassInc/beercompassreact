@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run watch:sass\" \"npm run serve:client\"",
-    "watch:sass": "sass --watch sass:css",
+    "watch:sass": "sass --update sass/style.sass:index.css",
     "serve:client": "budo . -d --serve bundle.js --live",
     "build": "browserify . -o bundle.js -g uglifyify",
     "test": "browserify test/index.js | node | tap-spec",
