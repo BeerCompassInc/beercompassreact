@@ -28,7 +28,7 @@ const initState = {
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
 
-navigator.geolocation.getCurrentPosition(function(position) {
+navigator.geolocation.watchPosition((position) => {
   var pos = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
