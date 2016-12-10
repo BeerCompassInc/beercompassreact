@@ -17,8 +17,8 @@ module.exports = ({state, dispatch}) => {
     <div className='login'>
       <Header state={state} dispatch={dispatch}/>
       <form>
-        <input onChange={(e) => saveUsername(e) } type="text" placeholder="username"/>
-        <input onChange={(e) => savePassword(e) } type="password" placeholder="password" />
+        <input onChange={(e) => saveUsername(e) } type="text" placeholder="Username"/>
+        <input onChange={(e) => savePassword(e) } type="password" placeholder="Password" />
         <button onClick={(e) => login(e)} type="submit">Login</button>
       </form>
       <button onClick={goToSignUp}>Create Account</button>
