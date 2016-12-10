@@ -20,6 +20,9 @@ module.exports = (state, { type, payload }) => {
     case 'TOGGLE_MARKER_DISPLAY':
       payload.showInfo = !payload.showInfo
       return { ...state }
+    case 'REMOVE_MARKER_ANIMATION':
+      payload.renderedYet = true
+      return { ...state }
     default:
       return { ...state }
   }

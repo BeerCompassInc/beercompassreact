@@ -14,9 +14,10 @@ module.exports = ({state, dispatch}) => {
         lat: marker.lat,
         lng: marker.lng
       },
-      animation: google.maps.Animation.DROP,
+      animation: marker.renderedYet ? null : google.maps.Animation.DROP,
       icon
     }
+    // dispatch({type: 'REMOVE_MARKER_ANIMATION', payload: marker})
     return <Marker
       onClick={() => dispatch({type: 'TOGGLE_MARKER_DISPLAY', payload: marker})}
       key={i} {...markerOnMap} >
