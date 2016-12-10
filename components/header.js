@@ -4,7 +4,13 @@ module.exports = ({state , dispatch}) => {
   const { title, route, showMenu } = state
   const toggleMenu = () => dispatch({type: 'SHOW_MENU'})
   const customClass = showMenu ? 'showMenu' : 'hideMenu'
-  const checkIfLoggedIn = () => route == '/' ? <div></div> : renderMenuButton()
+  const checkIfLoggedIn = () => {
+    if (route === '/' || route === '/signUp'){
+    return <div></div>
+  } else {
+      return renderMenuButton()
+    }
+  }
   const checkRouteForLogo = route == '/mymap' ? 'hideLogo' : 'showLogo'
   return(
     <div className='header'>
