@@ -15,7 +15,6 @@ const Map = ({state}) => {
     }
     return <Marker key={i} {...marker} />
   })
-console.log('these are the pins ', pins);
 return (
   <GoogleMapLoader
     containerElement = { mapContainer }
@@ -23,7 +22,7 @@ return (
       <GoogleMap
         defaultZoom={15}
         defaultCenter={location}
-        options={{streetViewControl: false, mapTypeControl: false }}>
+        options={{streetViewControl: true, mapTypeControl: true }}>
         { pins }
       </GoogleMap>
     } />
