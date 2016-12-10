@@ -17,6 +17,11 @@ module.exports = (state, { type, payload }) => {
     case 'ADD_ADVENTURES':
       state.places = payload
       return { ...state }
+    case 'TOGGLE_MARKER_DISPLAY':
+      state.markers.find((marker, i) => {
+        if(marker[i] == payload) marker.showInfo = true
+      })
+      return { ...state }
     default:
       return { ...state }
   }

@@ -26,15 +26,15 @@ const initState = {
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
 
-getAdventures(dispatch)
-
 navigator.geolocation.watchPosition((position) => {
   var pos = {
     lat: position.coords.latitude,
-    lng: position.coords.longitude
+    lng: position.coords.longitude,
+    showInfo: true
   }
-       console.log('I checked if you were at a new place')      
-  
+  console.log('I checked if you were at a new place')
+  // dispatch({type: 'UPDATE_CURRENT_POS', payload: pos})
+
   request
     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.lat},${pos.lng}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
     .end((err, res) => {
@@ -43,12 +43,14 @@ navigator.geolocation.watchPosition((position) => {
       var check = getState().markers.find((place) => {
         return place.placeId == placeId
       })
-      if(!check){ 
+      if (!check) {
         console.log('I put the place in the state', placeId)
         dispatch({type:'UPDATE_CURRENT_POS' , payload: pos})
       }
     })
 })
+
+getAdventures(dispatch)
 
 const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
@@ -58,11 +60,9 @@ const route = Router({ default: '/404' }, [
   ['/myAdventure', (params) => Adventure]
 ])
 
-
-
 subscribe(() => {
   var Component = route(getState().route)
-  ReactDOM.render(<Component state={getState()} dispatch={dispatch}/> , document.querySelector('main'))
+  ReactDOM.render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
 })
 
 dispatch({type: 'lemon'})
