@@ -70,19 +70,27 @@
   font-weight: bold;
   font-family: "Palanquin Dark", sans-serif;
   border-radius: 5px; }
-  @media (max-width: 410px) {
+  @media (max-width: 430px) {
     .login button, .signUp button {
       font-size: 30px; } }
   @media (min-width: 1000px) {
     .login button, .signUp button {
       width: 40%; } }
+.login .mainTitle, .signUp .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .login .mainTitle, .signUp .mainTitle {
+      font-size: 48px; } }
 
 ::-webkit-input-placeholder {
   color: black;
   font-family: "Raleway", sans-serif; }
 
 .mapDiv .mainTitle {
-  font-size: 40px; }
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .mapDiv .mainTitle {
+      font-size: 33px; } }
 
 .playContainer {
   margin-top: 100px; }
@@ -92,6 +100,12 @@
       fill: #F7BA7B; }
     .playContainer .play .poly {
       fill: #000; }
+
+.playDiv .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .playDiv .mainTitle {
+      font-size: 48px; } }
 
 .signUp img {
   width: 20%; }

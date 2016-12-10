@@ -6,7 +6,7 @@ module.exports = ({state, dispatch}) => {
     dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})
   }
   return(
-    <div>
+    <div className="playDiv">
       <Header state={state} dispatch={dispatch}/>
       <div className='playContainer'>
       <svg className="play" onClick={goToMap} viewBox="0 0 40 40" >
