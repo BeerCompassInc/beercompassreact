@@ -1,6 +1,6 @@
 import React from 'react'
 import { GoogleMapLoader, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
-const Map = ({state, dispatch}) => {
+module.exports = ({state, dispatch}) => {
   const { location, markers } = state
   const mapContainer = <div style={{height: '100%', width: '100%'}} />
 
@@ -22,7 +22,7 @@ const Map = ({state, dispatch}) => {
       key={i} {...markerOnMap} >
       {marker.showInfo && (
         <InfoWindow className='marker'>
-          <h1>{marker.placeId}</h1>
+          <p>{marker.placeId}</p>
         </InfoWindow>
       )}
     </Marker>
@@ -34,10 +34,9 @@ const Map = ({state, dispatch}) => {
         <GoogleMap
           defaultZoom={15}
           defaultCenter={location}
-          options={{streetViewControl: true, mapTypeControl: true }}>
+          options={{streetViewControl: false, mapTypeControl: false }}>
           { pins }
         </GoogleMap>
     } />
   )
 }
-export default Map

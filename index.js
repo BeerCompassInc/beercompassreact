@@ -10,6 +10,7 @@ import SignUp from './components/signUp'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import Adventure from './components/myAdventure'
+
 import getAdventures from './services/getAdventure'
 import watchPosition from './services/watchMyPosition'
 
