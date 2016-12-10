@@ -77,23 +77,19 @@ button {
   width: 90%;
   background-color: #F7BA7B;
   height: 13vh;
-  margin-bottom: 2vh;
+  margin: 1vh;
   font-size: 40px;
   border: none;
   font-weight: bold;
   text-align: center;
   font-family: "Raleway", sans-serif;
-  border-bottom: 2px solid grey;
-  border-radius: 5px; }
+  border-bottom: 2px solid grey; }
 .login button, .signUp button {
-  height: 60px;
-  margin: 3vh;
-  line-height: 0px;
-  width: 70%;
+  height: 10vh;
+  margin: 1vh;
   font-size: 40px;
   font-weight: bold;
-  font-family: "Palanquin Dark", sans-serif;
-  border-radius: 5px; }
+  font-family: "Palanquin Dark", sans-serif; }
 
 ::-webkit-input-placeholder {
   color: black;
@@ -103,6 +99,6 @@ svg {
   left: 0; }
 
 .mainTitle {
-  font-size: 50px; }
+  font-size: 40px; }
 
 /*# sourceMappingURL=index.css.map */
