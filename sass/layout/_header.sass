@@ -12,6 +12,8 @@
   height: auto
   margin-top: 20px
   width: 20%
+  @media (min-width: $desktop)
+    width: 10%
 
 .hideMenu
   position: absolute
@@ -26,6 +28,8 @@
   top: 0
   background-color: #404247
   color: $primary-color
+  @media (min-width: $desktop)
+    width: 30vw
   ul
     height: 100vh
     margin-top: 30%
@@ -37,8 +41,5 @@
     list-style: none
     border-bottom: 1px solid #E2E2E2
 
-svg
+.menuButton
   left: 0
-
-.mainTitle
-  font-size: 40px

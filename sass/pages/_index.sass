@@ -11,6 +11,9 @@
     font-family: $text
     border-bottom: 2px solid grey
     border-radius: 5px
+    @media (min-width: $desktop)
+      width: 60%
+
   button
     height: 60px
     margin: 3vh
@@ -20,6 +23,10 @@
     font-weight: bold
     font-family: $header
     border-radius: 5px
+    @media (max-width: $mobile)
+      font-size: 30px
+    @media (min-width: $desktop)
+      width: 40%
 
 ::-webkit-input-placeholder
   color: black

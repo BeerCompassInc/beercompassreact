@@ -12,6 +12,9 @@
   height: auto;
   margin-top: 20px;
   width: 20%; }
+  @media (min-width: 1000px) {
+    .showLogo {
+      width: 10%; } }
 
 .hideMenu {
   position: absolute;
@@ -26,6 +29,9 @@
   top: 0;
   background-color: #404247;
   color: #F7BA7B; }
+  @media (min-width: 1000px) {
+    .showMenu {
+      width: 30vw; } }
   .showMenu ul {
     height: 100vh;
     margin-top: 30%;
@@ -37,11 +43,8 @@
     list-style: none;
     border-bottom: 1px solid #E2E2E2; }
 
-svg {
+.menuButton {
   left: 0; }
-
-.mainTitle {
-  font-size: 40px; }
 
 .login input, .signUp input {
   width: 90%;
@@ -55,6 +58,9 @@ svg {
   font-family: "Raleway", sans-serif;
   border-bottom: 2px solid grey;
   border-radius: 5px; }
+  @media (min-width: 1000px) {
+    .login input, .signUp input {
+      width: 60%; } }
 .login button, .signUp button {
   height: 60px;
   margin: 3vh;
@@ -64,10 +70,19 @@ svg {
   font-weight: bold;
   font-family: "Palanquin Dark", sans-serif;
   border-radius: 5px; }
+  @media (max-width: 410px) {
+    .login button, .signUp button {
+      font-size: 30px; } }
+  @media (min-width: 1000px) {
+    .login button, .signUp button {
+      width: 40%; } }
 
 ::-webkit-input-placeholder {
   color: black;
   font-family: "Raleway", sans-serif; }
+
+.mapDiv .mainTitle {
+  font-size: 40px; }
 
 .playContainer {
   margin-top: 100px; }
@@ -85,8 +100,6 @@ body {
   background-color: #000;
   text-align: center;
   margin: 0 auto;
-  max-width: 432px;
-  max-height: 768px;
   font-family: "Raleway", sans-serif;
   font-weight: 600px;
   font-size: 30px;
@@ -94,11 +107,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0px;
-  font-family: "Palanquin Dark", sans-serif;
-  font-size: 50px; }
-
-main {
-  text-align: center; }
+  font-family: "Palanquin Dark", sans-serif; }
 
 button {
   background-color: #F7BA7B;
