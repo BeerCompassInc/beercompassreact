@@ -9,7 +9,7 @@ module.exports = ({state, dispatch}) => {
 
   return(
     <div>
-      <Header state={state}/>
+      <Header state={state} dispatch={dispatch} />
       {places.map((place, i) => {
         return (
           <li key={i}>{place.lat}</li>
