@@ -1,25 +1,20 @@
-import React from 'react'
+
 import request from 'superagent'
+import React from 'react'
 
+const getAdventure = (dispatch) =>  {
 
-const getAdventure = () => {
+    const url = 'https://beercompass-server.herokuapp.com/api/v1/1/1'
+    request
+    .get(url)
+    .set('Accept', 'text/json')
+    .end((err, res) => {
+      const locations = res.body
+      console.log(locations);
 
-  const url = 'https://beercompass-server.herokuapp.com/api/v1/1/1'
-  request
-  .get(url)
-  .set('Accept', 'text/json')
-  .end((err, res) => {
-    const places = res.body
-    console.log(JSON.stringify(places))
+    dispatch({type:'ADD_ADVENTURES', payload: locations})
   })
-
-  return (
-    <div>
-      <p>This is in the getAdventure service</p>
-    </div>
-  )
-
-
 }
+
 
 export default getAdventure

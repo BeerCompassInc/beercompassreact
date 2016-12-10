@@ -1,12 +1,20 @@
 import React from 'react'
 import Header from './header'
-import Adventure from '../services/getAdventure'
 
 
-module.exports = () => {
+module.exports = ({state, dispatch}) => {
+
+  const { places } = state
+
+
   return(
     <div>
-      <Adventure />
+      <Header state={state}/>
+      {places.map((place, i) => {
+        return (
+          <li key={i}>{place.lat}</li>
+        )
+      })}
     </div>
   )
 }

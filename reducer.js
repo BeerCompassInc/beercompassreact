@@ -14,6 +14,9 @@ module.exports = (state, { type, payload }) => {
       state.location = payload
       state.markers.push(payload)
       return { ...state }
+    case 'ADD_ADVENTURES':
+      state.places = payload
+      return { ...state }
     default:
       return { ...state }
   }

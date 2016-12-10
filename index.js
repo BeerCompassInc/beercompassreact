@@ -10,6 +10,8 @@ import SignUp from './components/signUp'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import Adventure from './components/myAdventure'
+import getAdventures from './services/getAdventure'
+
 
 const initState = {
   title: 'Beercompass',
@@ -18,10 +20,13 @@ const initState = {
   loginDetails: {},
   newUserDetails: {},
   location: {},
-  markers: []
+  markers: [],
+  places: []
 }
 
 const { getState, dispatch, subscribe } = createStore(reducer, initState)
+
+getAdventures(dispatch)
 
 navigator.geolocation.watchPosition((position) => {
   var pos = {
