@@ -76,6 +76,11 @@
   @media (min-width: 1000px) {
     .login button, .signUp button {
       width: 40%; } }
+.login .mainTitle, .signUp .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 410px) {
+    .login .mainTitle, .signUp .mainTitle {
+      font-size: 48px; } }
 
 ::-webkit-input-placeholder {
   color: black;
@@ -92,6 +97,12 @@
       fill: #F7BA7B; }
     .playContainer .play .poly {
       fill: #000; }
+
+.playDiv .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 410px) {
+    .playDiv .mainTitle {
+      font-size: 48px; } }
 
 .signUp img {
   width: 20%; }
