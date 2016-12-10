@@ -10,6 +10,10 @@ module.exports = (state, { type, payload }) => {
     case 'NEW_USER_DETAILS':
       state.newUserDetails[payload.change] = payload.value
       return { ...state }
+    case 'UPDATE_CURRENT_POS':
+      state.location = payload
+      state.markers.push(payload)
+      return { ...state }
     default:
       return { ...state }
   }
