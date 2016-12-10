@@ -1,30 +1,3 @@
-body {
-  background-color: #000;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 432px;
-  max-height: 768px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600px;
-  font-size: 30px;
-  color: #F7BA7B; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0px;
-  font-family: "Palanquin Dark", sans-serif;
-  font-size: 50px; }
-
-main {
-  text-align: center; }
-
-button {
-  background-color: #F7BA7B;
-  border: none;
-  cursor: pointer; }
-
-.signUp img {
-  width: 20%; }
-
 .menuButton {
   z-index: 20;
   fill: #FFF;
@@ -39,6 +12,9 @@ button {
   height: auto;
   margin-top: 20px;
   width: 20%; }
+  @media (min-width: 1000px) {
+    .showLogo {
+      width: 10%; } }
 
 .hideMenu {
   position: absolute;
@@ -53,6 +29,9 @@ button {
   top: 0;
   background-color: #404247;
   color: #F7BA7B; }
+  @media (min-width: 1000px) {
+    .showMenu {
+      width: 30vw; } }
   .showMenu ul {
     height: 100vh;
     margin-top: 30%;
@@ -64,14 +43,8 @@ button {
     list-style: none;
     border-bottom: 1px solid #E2E2E2; }
 
-.playContainer {
-  margin-top: 100px; }
-  .playContainer .play {
-    width: 250px; }
-    .playContainer .play .circle {
-      fill: #F7BA7B; }
-    .playContainer .play .poly {
-      fill: #000; }
+.menuButton {
+  left: 0; }
 
 .login input, .signUp input {
   width: 90%;
@@ -85,6 +58,9 @@ button {
   font-family: "Raleway", sans-serif;
   border-bottom: 2px solid grey;
   border-radius: 5px; }
+  @media (min-width: 1000px) {
+    .login input, .signUp input {
+      width: 60%; } }
 .login button, .signUp button {
   height: 60px;
   margin: 3vh;
@@ -94,15 +70,62 @@ button {
   font-weight: bold;
   font-family: "Palanquin Dark", sans-serif;
   border-radius: 5px; }
+  @media (max-width: 430px) {
+    .login button, .signUp button {
+      font-size: 30px; } }
+  @media (min-width: 1000px) {
+    .login button, .signUp button {
+      width: 40%; } }
+.login .mainTitle, .signUp .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .login .mainTitle, .signUp .mainTitle {
+      font-size: 48px; } }
 
 ::-webkit-input-placeholder {
   color: black;
   font-family: "Raleway", sans-serif; }
 
-svg {
-  left: 0; }
+.mapDiv .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .mapDiv .mainTitle {
+      font-size: 33px; } }
 
-.mainTitle {
-  font-size: 50px; }
+.playContainer {
+  margin-top: 100px; }
+  .playContainer .play {
+    width: 250px; }
+    .playContainer .play .circle {
+      fill: #F7BA7B; }
+    .playContainer .play .poly {
+      fill: #000; }
+
+.playDiv .mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .playDiv .mainTitle {
+      font-size: 48px; } }
+
+.signUp img {
+  width: 20%; }
+
+body {
+  background-color: #000;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600px;
+  font-size: 30px;
+  color: #F7BA7B; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  font-family: "Palanquin Dark", sans-serif; }
+
+button {
+  background-color: #F7BA7B;
+  border: none;
+  cursor: pointer; }
 
 /*# sourceMappingURL=index.css.map */
