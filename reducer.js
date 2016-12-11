@@ -33,8 +33,11 @@ module.exports = (state, { type, payload }) => {
       targetMarker.renderedYet = true
       return newState
     case 'LOGIN_SUCCESS':
-      newState.currentUser = payload
+      newState.currentUser = payload.user
       newState.route = '/play'
+      return newState
+    case 'SAVE_CURRENT_ADVENTURE_ID':
+      newState.currentAdventure = payload
       return newState
     case 'STOP_ADVENTURE':
       newState.markers = []

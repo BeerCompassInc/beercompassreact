@@ -3,9 +3,10 @@ import Header from './header'
 import { newAdventure } from '../services/saveAdventure'
 
 module.exports = ({state, dispatch}) => {
+  console.log(state.currentUser);
   const goToMap = () => {
     dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})
-    // newAdventure(dispatch)
+    newAdventure(state, dispatch)
   }
   return (
     <div className='playDiv'>

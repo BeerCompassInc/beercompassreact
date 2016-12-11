@@ -1,16 +1,21 @@
 import request from 'superagent'
 
-const newAdventure = (dispatch) => {
+const newAdventure = ({ currentUser }, dispatch) => {
   request
-    .get()
+    .post('http://localhost:3000/api/v1/newAdventure')
+    .send({user: currentUser})
+    .withCredentials()
+    .set('Accept', 'application/json')
     .end((err, res) => {
-      dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body})
+      console.log('newAdventure', res)
+      dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body.adventure_id})
     })
 }
 
 const storeAdventure = (dispatch) => {
   request
-    .post()
+    .post('http://localhost:3000/api/v1/adventures')
+    .withCredentials()
     .end((err, res) => {
       dispatch({type: 'STOP_ADVENTURE'})
     })
