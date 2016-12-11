@@ -8,7 +8,7 @@ module.exports = ({newUserDetails}, dispatch) => {
     .end((err,res) => {
       console.log(res);
       if (res.body){
-        dispatch({type: 'LOGIN_SUCCESS', payload: res.body })
+        dispatch({type: 'SINGUP_SUCCESS', payload: res.body })
       }
     })
 }

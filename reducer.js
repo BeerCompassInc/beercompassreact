@@ -23,6 +23,8 @@ module.exports = (state, { type, payload }) => {
     case 'LOGIN_SUCCESS':
       state.currentUser = payload
       state.route = '/play'
+    case 'SIGNUP_SUCCESS':
+      state.route = '/login'
       return { ...state }
     default:
       return { ...state }
