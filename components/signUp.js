@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './header'
+import signupService from '../services/signup'
+
 
 module.exports = ({state, dispatch}) => {
   const saveUsername = (e) => dispatch({type: 'NEW_USER_DETAILS', payload: {change: 'username', value: e.target.value}})
@@ -10,7 +12,7 @@ module.exports = ({state, dispatch}) => {
 
   const authorizeSignUp = (e) => {
     e.preventDefault()
-    dispatch({type: 'CHANGE_ROUTE', payload: '/play'})
+    signupService(state, dispatch)
   }
   console.log(state.newUserDetails);
   return (

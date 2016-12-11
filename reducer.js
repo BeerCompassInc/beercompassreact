@@ -37,7 +37,13 @@ module.exports = (state, { type, payload }) => {
       newState.route = '/play'
       return newState
     case 'SIGNUP_SUCCESS':
-      state.route = '/login'
+      newState.route = '/'
+      return newState
+    case 'LOGOUT':
+      newState.loginDetails.username = null
+      newState.loginDetails.password = null
+      newState.route = payload
+      newState.showMenu = !newState.showMenu
       return newState
     default:
       return newState

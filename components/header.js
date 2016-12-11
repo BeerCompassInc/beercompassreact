@@ -18,7 +18,7 @@ module.exports = ({state, dispatch}) => {
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Home</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/play'}) }} >Play</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'}) }} >My Map</li>
-          <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Logout</li>
+          <li onClick={() => { dispatch({type: 'LOGOUT', payload: '/'}) }} >Logout</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventure'}) }} >My Adventure</li>
         </ul>
       </div>

@@ -6,9 +6,8 @@ module.exports = ({newUserDetails}, dispatch) => {
     .post('http://localhost:3000/signup')
     .send({username, password, email})
     .end((err,res) => {
-      console.log(res);
-      if (res.body){
-        dispatch({type: 'SINGUP_SUCCESS', payload: res.body })
+      if (res) {
+        dispatch({type: 'SIGNUP_SUCCESS'})
       }
     })
 }

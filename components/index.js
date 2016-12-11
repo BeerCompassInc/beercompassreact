@@ -13,6 +13,7 @@ module.exports = ({state, dispatch}) => {
     e.preventDefault()
     loginService(state, dispatch)
   }
+  console.log(state.loginDetails);
   return (
     <div className='login'>
       <Header state={state} dispatch={dispatch} />
