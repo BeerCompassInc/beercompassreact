@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import loginService from '../services/login'
 
 module.exports = ({state, dispatch}) => {
   const goToSignUp = () => dispatch({type: 'CHANGE_ROUTE', payload: '/signUp'})
@@ -8,9 +9,9 @@ module.exports = ({state, dispatch}) => {
 
   const savePassword = (e) => dispatch({type: 'UPDATE_LOGIN_DETAILS', payload: {change: 'password', value: e.target.value}})
 
-  const login = (e) => {
+  const loginButton = (e) => {
     e.preventDefault()
-    dispatch({type: 'CHANGE_ROUTE', payload: '/play'})
+    loginService(state, dispatch)
   }
   return (
     <div className='login'>
@@ -18,7 +19,7 @@ module.exports = ({state, dispatch}) => {
       <form>
         <input onChange={(e) => saveUsername(e)} type='text' placeholder='Username' />
         <input onChange={(e) => savePassword(e)} type='password' placeholder='Password' />
-        <button onClick={(e) => login(e)} type='submit'>Login</button>
+        <button onClick={(e) => loginButton(e)} type='submit'>Login</button>
       </form>
       <button onClick={goToSignUp}>Create Account</button>
     </div>

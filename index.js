@@ -19,6 +19,7 @@ const initState = {
   route: '/',
   lastRoute: 'lemon',
   loginDetails: {},
+  currentUser: {},
   newUserDetails: {},
   location: {},
   markers: [],
