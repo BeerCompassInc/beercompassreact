@@ -19,7 +19,6 @@ module.exports = ({getState, dispatch}) => {
         })
         if (!check) {
           dispatch({type:'UPDATE_CURRENT_POS' , payload: newMarker})
-
         }
       })
   })
