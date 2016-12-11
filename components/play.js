@@ -5,6 +5,7 @@ import { newAdventure } from '../services/saveAdventure'
 module.exports = ({state, dispatch}) => {
   const goToMap = () => {
     dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})
+    // newAdventure(dispatch)
   }
   return (
     <div className='playDiv'>

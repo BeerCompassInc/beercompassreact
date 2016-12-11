@@ -2,7 +2,7 @@ import request from 'superagent'
 
 const newAdventure = (dispatch) => {
   request
-    .post()
+    .get()
     .end((err, res) => {
       dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body})
     })
