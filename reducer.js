@@ -1,29 +1,38 @@
+import clone from 'clone'
+
 module.exports = (state, { type, payload }) => {
+  const newState = clone(state)
+
   switch (type) {
     case 'CHANGE_ROUTE':
-      return { ...state, lastRoute: state.route, route: payload, showMenu: false }
+      newState.lastRoute = newState.route
+      newState.route = payload
+      newState.showMenu = false
+      return newState
     case 'SHOW_MENU':
-      return { ...state, showMenu: !state.showMenu }
+      newState.showMenu = !newState.showMenu
+      return newState
     case 'UPDATE_LOGIN_DETAILS':
-      state.loginDetails[payload.change] = payload.value
-      return { ...state }
+      newState.loginDetails[payload.change] = payload.value
+      return newState
     case 'NEW_USER_DETAILS':
-      state.newUserDetails[payload.change] = payload.value
-      return { ...state }
+      newState.newUserDetails[payload.change] = payload.value
+      return newState
     case 'UPDATE_CURRENT_POS':
-      state.location = payload
-      state.markers.push(payload)
-      return { ...state }
+      newState.location = payload
+      newState.markers.push(payload)
+      return newState
     case 'ADD_ADVENTURES':
-      state.places = payload
-      return { ...state }
+      newState.places = payload
+      return newState
     case 'TOGGLE_MARKER_DISPLAY':
-      payload.showInfo = !payload.showInfo
-      return { ...state }
-    case 'REMOVE_MARKER_ANIMATION':
-      payload.renderedYet = true
-      return { ...state }
+      var targetMarker = newState.markers.find((marker) => {
+        return payload.placeId == marker.placeId
+      })
+      targetMarker.showInfo = !targetMarker.showInfo
+      targetMarker.renderedYet = true
+      return newState
     default:
-      return { ...state }
+      return newState
   }
 }
