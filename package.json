@@ -46,6 +46,9 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1",
     "uglifyify": "^3.0.1",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "clone": "^2.1.0"
+  },
+  "dependencies": {
   }
 }
