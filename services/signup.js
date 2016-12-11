@@ -3,7 +3,7 @@ import request from 'superagent'
 module.exports = ({newUserDetails}, dispatch) => {
   const {username, password, email} = newUserDetails
   request
-    .post('http://localhost:3000/signup')
+    .post('https://beercompass-server.herokuapp.com/signup')
     .send({username, password, email})
     .end((err,res) => {
       if (res) {

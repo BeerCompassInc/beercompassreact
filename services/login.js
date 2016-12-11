@@ -3,7 +3,7 @@ import request from 'superagent'
 module.exports = ({loginDetails}, dispatch) => {
   const {username, password} = loginDetails
   request
-    .post('http://192.168.1.54:3000/login')
+    .post('https://beercompass-server.herokuapp.com/login')
     .send({username, password})
     .withCredentials()
     .end((err,res) => {
