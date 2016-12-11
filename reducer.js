@@ -32,6 +32,10 @@ module.exports = (state, { type, payload }) => {
       targetMarker.showInfo = !targetMarker.showInfo
       targetMarker.renderedYet = true
       return newState
+    case 'LOGIN_SUCCESS':
+      newState.currentUser = payload
+      newState.route = '/play'
+      return newState
     default:
       return newState
   }
