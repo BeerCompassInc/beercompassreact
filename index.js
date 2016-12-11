@@ -7,11 +7,12 @@ import reducer from './reducer'
 
 import Login from './components'
 import SignUp from './components/signUp'
+import Loading from './components/loading'
 import Play from './components/play'
 import MyMap from './components/mymap'
-import Adventure from './components/myAdventure'
+import MyAdventures from './components/myadventures'
 
-import getAdventures from './services/getAdventure'
+import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
 
 const initState = {
@@ -20,6 +21,7 @@ const initState = {
   lastRoute: 'lemon',
   loginDetails: {},
   currentUser: {},
+  currentAdventure: null,
   newUserDetails: {},
   location: {},
   markers: [],
@@ -36,9 +38,10 @@ getAdventures(dispatch)
 const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
   ['/signUp', (params) => SignUp],
+  ['/loading', (params) => Loading],
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
-  ['/myAdventure', (params) => Adventure]
+  ['/myAdventures', (params) => MyAdventures]
 ])
 
 subscribe(() => {
