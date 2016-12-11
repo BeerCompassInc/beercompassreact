@@ -9,9 +9,9 @@ import Login from './components'
 import SignUp from './components/signUp'
 import Play from './components/play'
 import MyMap from './components/mymap'
-import Adventure from './components/myAdventure'
+import MyAdventures from './components/myadventures'
 
-import getAdventures from './services/getAdventure'
+import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
 
 const initState = {
@@ -20,6 +20,7 @@ const initState = {
   lastRoute: 'lemon',
   loginDetails: {},
   currentUser: {},
+  currentAdventure: null,
   newUserDetails: {},
   location: {},
   markers: [],
@@ -38,7 +39,7 @@ const route = Router({ default: '/404' }, [
   ['/signUp', (params) => SignUp],
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
-  ['/myAdventure', (params) => Adventure]
+  ['/myAdventures', (params) => MyAdventures]
 ])
 
 subscribe(() => {

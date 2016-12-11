@@ -36,6 +36,11 @@ module.exports = (state, { type, payload }) => {
       newState.currentUser = payload
       newState.route = '/play'
       return newState
+    case 'STOP_ADVENTURE':
+      newState.markers = []
+      newState.markers.push(newState.location)
+      newState.currentAdventure = null
+      return newState
     default:
       return newState
   }

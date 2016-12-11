@@ -18,8 +18,13 @@ module.exports = ({state, dispatch}) => {
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Home</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/play'}) }} >Play</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'}) }} >My Map</li>
+          <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'}) }} >My Adventures</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Logout</li>
-          <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventure'}) }} >My Adventure</li>
+          <li onClick={() => {
+              dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'})
+              dispatch({type: 'STOP_ADVENTURE'})
+            }
+          } className='stopButton' >Stop</li>
         </ul>
       </div>
     </div>
