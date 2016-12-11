@@ -6,6 +6,6 @@ module.exports = (dispatch) => {
     .get(url)
     .set('Accept', 'text/json')
     .end((err, res) => {
-      dispatch({type: 'ADD_ADVENTURES', payload: res.body})
+      dispatch({type: 'ADD_ADVENTURE', payload: res.body})
     })
 }
