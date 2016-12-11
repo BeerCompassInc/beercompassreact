@@ -4,8 +4,9 @@ module.exports = (state, { type, payload }) => {
   const newState = clone(state)
 
   switch (type) {
+    case "INIT":
+      return newState
     case 'CHANGE_ROUTE':
-      newState.lastRoute = newState.route
       newState.route = payload
       newState.showMenu = false
       return newState
@@ -22,7 +23,7 @@ module.exports = (state, { type, payload }) => {
       newState.location = payload
       newState.markers.push(payload)
       return newState
-    case 'ADD_ADVENTURES':
+    case 'ADD_ADVENTURE':
       newState.places = payload
       return newState
     case 'TOGGLE_MARKER_DISPLAY':

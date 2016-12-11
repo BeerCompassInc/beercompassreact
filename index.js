@@ -18,7 +18,6 @@ import watchPosition from './services/watchMyPosition'
 const initState = {
   title: 'Beercompass',
   route: '/',
-  lastRoute: 'lemon',
   loginDetails: {},
   currentUser: {},
   currentAdventure: null,
@@ -49,4 +48,4 @@ subscribe(() => {
   ReactDOM.render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
 })
 
-dispatch({type: 'lemon'})
+dispatch({type: 'INIT'})
