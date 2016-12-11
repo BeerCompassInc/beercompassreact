@@ -20,11 +20,8 @@ module.exports = ({state, dispatch}) => {
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/play'}) }} >Play</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'}) }} >My Map</li>
           <li onClick={() => { dispatch({type: 'LOGOUT', payload: '/'}) }} >Logout</li>
-          <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventure'}) }} >My Adventure</li>        
-          <li onClick={() => {
-              dispatch({type: 'STOP_ADVENTURE'})
-            }
-          } className='stopButton' >Stop</li>
+          <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'}) }} >My Adventures</li>
+          <li onClick={() => { dispatch({type: 'STOP_ADVENTURE'})}} className='stopButton' >Stop</li>
         </ul>
       </div>
     </div>
