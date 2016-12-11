@@ -19,9 +19,16 @@ module.exports = (state, { type, payload }) => {
     case 'NEW_USER_DETAILS':
       newState.newUserDetails[payload.change] = payload.value
       return newState
-    case 'UPDATE_CURRENT_POS':
+    case 'ADD_NEW_MARKER':
       newState.location = payload
       newState.markers.push(payload)
+      return newState
+    case 'ADD_TIME_TO_MARKER':
+      newState.location = payload
+      var targetMarker = newState.markers.find((marker) => {
+        return payload.placeId == marker.placeId
+      })
+      targetMarker.time.push(targetMarker.time[targetMarker.time.length-1]++)
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload
@@ -35,14 +42,14 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'LOGIN_SUCCESS':
       newState.currentUser = payload.user
+      newState.loginDetails = {}
       newState.route = '/play'
       return newState
     case 'SIGNUP_SUCCESS':
       newState.route = '/'
       return newState
     case 'LOGOUT':
-      newState.loginDetails.username = null
-      newState.loginDetails.password = null
+      newState.currentUser = {}
       newState.route = payload
       newState.showMenu = !newState.showMenu
     case 'SAVE_CURRENT_ADVENTURE_ID':
