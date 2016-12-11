@@ -14,11 +14,15 @@ module.exports = ({getState, dispatch}) => {
       .end((err, res) => {
         var placeId = res.body.results[0].place_id
         newMarker.placeId = placeId
-        var check = getState().markers.find((place) => {
+        var check = getState().markers.map((place) => {
           return place.placeId == placeId
         })
-        if (!check) {
-          dispatch({type:'UPDATE_CURRENT_POS' , payload: newMarker})
+        if (check.length == 0) {
+          newMarker.time = [1]
+          dispatch({type: 'ADD_NEW_MARKER' , payload: newMarker})
+        }
+        else {
+          dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
         }
       })
   })
