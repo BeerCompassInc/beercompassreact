@@ -33,7 +33,7 @@ module.exports = (state, { type, payload }) => {
       targetMarker.renderedYet = true
       return newState
     case 'LOGIN_SUCCESS':
-      newState.currentUser = payload
+      newState.currentUser = payload.user
       newState.route = '/play'
       return newState
     case 'SIGNUP_SUCCESS':
@@ -44,6 +44,14 @@ module.exports = (state, { type, payload }) => {
       newState.loginDetails.password = null
       newState.route = payload
       newState.showMenu = !newState.showMenu
+    case 'SAVE_CURRENT_ADVENTURE_ID':
+      newState.currentAdventure = payload
+      return newState
+    case 'STOP_ADVENTURE':
+      newState.markers = []
+      newState.route = '/myAdventures'
+      newState.markers.push(newState.location)
+      newState.currentAdventure = null
       return newState
     default:
       return newState

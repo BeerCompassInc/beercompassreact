@@ -5,6 +5,7 @@ module.exports = ({loginDetails}, dispatch) => {
   request
     .post('http://localhost:3000/login')
     .send({username, password})
+    .withCredentials()
     .end((err,res) => {
       console.log(res);
       if (res.body){
