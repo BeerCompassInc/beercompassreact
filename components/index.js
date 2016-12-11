@@ -14,7 +14,7 @@ module.exports = ({state, dispatch}) => {
     dispatch({type: 'CHANGE_ROUTE', payload: '/loading'})
     setTimeout(() => {
       loginService(state, dispatch)
-    }, 1000)
+    }, 5000)
   }
   console.log(state.loginDetails);
   return (
