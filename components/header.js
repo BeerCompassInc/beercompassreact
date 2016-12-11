@@ -1,4 +1,5 @@
 import React from 'react'
+import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({state, dispatch}) => {
   const { title, route, showMenu } = state
@@ -21,7 +22,6 @@ module.exports = ({state, dispatch}) => {
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'}) }} >My Adventures</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Logout</li>
           <li onClick={() => {
-              dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'})
               dispatch({type: 'STOP_ADVENTURE'})
             }
           } className='stopButton' >Stop</li>

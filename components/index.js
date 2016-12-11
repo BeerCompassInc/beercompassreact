@@ -11,7 +11,10 @@ module.exports = ({state, dispatch}) => {
 
   const loginButton = (e) => {
     e.preventDefault()
-    loginService(state, dispatch)
+    dispatch({type: 'CHANGE_ROUTE', payload: '/loading'})
+    setTimeout(() => {
+      loginService(state, dispatch)
+    }, 1000)
   }
   return (
     <div className='login'>

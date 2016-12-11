@@ -38,6 +38,7 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'STOP_ADVENTURE':
       newState.markers = []
+      newState.route = '/myAdventures'
       newState.markers.push(newState.location)
       newState.currentAdventure = null
       return newState
