@@ -1,5 +1,5 @@
 import test from 'tape'
-import reducer from '../reducer'
+import reducer from '../../reducer'
 
 test('tests are hooked up', (t) => {
   t.ok('tests are a go')
@@ -8,13 +8,11 @@ test('tests are hooked up', (t) => {
 test('test change route reducer', (t) => {
   const state = {
     route: '/',
-    lastRoute: null
   }
   const expected = {
-    route: '/new',
-    lastRoute: '/'
+    route: '/signup',
   }
-  const actual = reducer(state, {type: 'CHANGE_ROUTE', payload: '/new'})
+  const actual = reducer(state, {type: 'CHANGE_ROUTE', payload: '/signup'})
   t.deepEquals(actual, expected, 'changing a route works')
   t.end()
 })
