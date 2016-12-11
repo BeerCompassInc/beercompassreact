@@ -9,6 +9,6 @@ module.exports = ({loginDetails}, dispatch) => {
     .end((err,res) => {
       console.log(res);
       if (res.body) dispatch({type: 'LOGIN_SUCCESS', payload: res.body })
-      dispatch({type: 'CHANGE_ROUTE', payload: '/'})
+      else dispatch({type: 'CHANGE_ROUTE', payload: '/'})
     })
 }
