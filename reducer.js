@@ -20,6 +20,10 @@ module.exports = (state, { type, payload }) => {
     case 'TOGGLE_MARKER_DISPLAY':
       payload.showInfo = !payload.showInfo
       return { ...state }
+    case 'LOGIN_SUCCESS':
+      state.currentUser = payload
+      state.route = '/play'
+      return { ...state }
     default:
       return { ...state }
   }
