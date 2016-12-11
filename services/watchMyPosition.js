@@ -1,7 +1,13 @@
 import request from 'superagent'
 
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+}
+
 module.exports = ({getState, dispatch}) => {
-  navigator.geolocation.watchPosition((position) => {
+  navigator.geolocation.watchPosition((position, options) => {
     var newMarker = {
       lat: position.coords.latitude,
       lng: position.coords.longitude,
