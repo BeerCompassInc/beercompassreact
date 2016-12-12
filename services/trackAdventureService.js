@@ -82,6 +82,8 @@ export default class extends Component {
             center: chicago
         };
 
+    var point1 = new google.maps.LatLng(37.334818, -121.884886)
+
     this.map = new google.maps.Map(this.refs.map , mapOptions)
     console.log('This map ', this.refs.map);
     directionsDisplay.setMap(this.map)
@@ -90,31 +92,28 @@ export default class extends Component {
 
     const start = new google.maps.LatLng(37.334818, -121.884886)
     const end = new google.maps.LatLng(37.441883, -122.143019)
-    console.log('!!!!!!', end);
-    const bounds = new google.maps.LatLngBounds();
-        bounds.extend(start);
-        bounds.extend(end);
-        this.map.fitBounds(bounds);
-        const request = {
-            origin: start,
-            destination: end,
-            travelMode: google.maps.TravelMode.DRIVING
-        }
-        console.log('This is the request ', request);
+    const waypts = [
+      {location: point1, stopover: true}]
 
 
 
-        directionsService.route(request, function (response, status) {
-          console.log('This is the response ', response);
-            if (status == google.maps.DirectionsStatus.OK) {
-              console.log('Looking gog so far!');
-                directionsDisplay.setDirections(response)
-                directionsDisplay.setMap(_this.map)
-            } else {
-                alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status)
-              }
-        })
+
+        directionsService.route({
+          origin: start,
+          destination: end,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        }, function(res, status) {
+          console.log("Im in the res")
+          console.log('im the res ', res);
+            if(status === 'OK') {
+              directionsDisplay.setDirections(res)
+            }
+          })
+
   }
+
 
   render() {
     return(
