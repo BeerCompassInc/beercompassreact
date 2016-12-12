@@ -1,5 +1,4 @@
 import React from 'react'
-// import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({ state, dispatch }) => {
   const { title, route, showMenu, currentUser } = state
