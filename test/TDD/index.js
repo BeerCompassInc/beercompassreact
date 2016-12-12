@@ -128,6 +128,7 @@ test('itterates the time by 1', (t) => {
         time: [1]
       },
     markers: [{
+      beerSize: 14.5,
       placeId: 123,
       time: [2, 1]
     }]
@@ -136,40 +137,6 @@ test('itterates the time by 1', (t) => {
 
   const actual = reducer(state, action)
   t.deepEquals(actual, expected, 'location is pushed to an array')
-  t.end()
-})
-
-test('test add adventure', (t) => {
-
-  const payload = [
-  {
-    "id": 1,
-    "user_id": 1,
-    "adventure_id": 1,
-    "lat": "-41.296798",
-    "long": "174.773789",
-    "createdAt": "2016-12-10 02:22:47"
-  }
-]
-  const state = {
-    places: []
-  }
-
-  freeze(state)
-
-  const expected = {
-    places: [{
-      "id": 1,
-      "user_id": 1,
-      "adventure_id": 1,
-      "lat": "-41.296798",
-      "long": "174.773789",
-      "createdAt": "2016-12-10 02:22:47"
-    }]
-  }
-
-  const actual = reducer(state, {type: 'ADD_ADVENTURE', payload: payload})
-  t.deepEquals(actual, expected, 'adding an adventures object to places array works')
   t.end()
 })
 
@@ -246,6 +213,7 @@ test('test logging out', (t) => {
 
   const expected = {
     currentUser: {},
+    myadventures: [],
     route: '/',
     showMenu: false
   }

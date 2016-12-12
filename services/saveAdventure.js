@@ -1,9 +1,9 @@
 import request from 'superagent'
+import getAdventures from './getAdventures'
 
 const newAdventure = ({ currentUser }, dispatch) => {
   request
-    .post('https://beercompass-server.herokuapp.com/api/v1/newAdventure')
-    .send({user: currentUser})
+    .post('https://beercompass-server.herokuapp.com/api/v1/adventures/new')
     .withCredentials()
     .set('Accept', 'application/json')
     .end((err, res) => {
@@ -13,13 +13,24 @@ const newAdventure = ({ currentUser }, dispatch) => {
     })
 }
 
-const storeAdventure = (dispatch) => {
+const storeAdventure = ({ markers, currentAdventure, currentUser }, dispatch) => {
+  var positions = markers.map((marker) => {
+    return {
+      user_id: currentUser.user_id,
+      adventure_id: currentAdventure,
+      lat: marker.lat,
+      lng: marker.lng,
+      time: marker.beerSize
+    }
+  })
   request
-    .post('https://beercompass-server.herokuapp.com/api/v1/saveAdventure')
+    .post('https://beercompass-server.herokuapp.com/api/v1/adventures')
+    .send({positions})
     .withCredentials()
     .end((err, res) => {
       if (!err) {
         dispatch({type: 'STOP_ADVENTURE'})
+        getAdventures(dispatch)
       }
     })
 }

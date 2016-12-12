@@ -17,6 +17,7 @@ module.exports = ({getState, dispatch}) => {
           const newMarker = buildMarker(latitude, longitude, placeId)
           if (!hasBeenVisited(getState, placeId)) {
             newMarker.time = [1]
+            newMarker.beerSize = 15
             dispatch({type: 'ADD_NEW_MARKER', payload: newMarker})
           }
           else dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})

@@ -11,8 +11,8 @@ import Loading from './components/loading'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import MyAdventures from './components/myadventures'
+import AdventureMap from './components/adventureMap'
 
-import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
 
 const initState = {
@@ -24,14 +24,14 @@ const initState = {
   newUserDetails: {},
   location: {},
   markers: [],
-  places: []
+  myadventures: [],
+  adventureToRender: null
 }
 
 const store = createStore(reducer, initState)
 const { getState, dispatch, subscribe } = store
 
 watchPosition(store)
-getAdventures(dispatch)
 
 const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
@@ -39,7 +39,8 @@ const route = Router({ default: '/404' }, [
   ['/loading', (params) => Loading],
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
-  ['/myAdventures', (params) => MyAdventures]
+  ['/myAdventures', (params) => MyAdventures],
+  ['/adventureMap', (params) => AdventureMap]
 ])
 
 subscribe(() => {

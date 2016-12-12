@@ -27,9 +27,15 @@ module.exports = (state, { type, payload }) => {
       newState.location = payload
       const timeMarker = findMarker(newState, payload)
       timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
+      const size = timeMarker.time.map((time) => 3 / time)
+      let beerSize = size.reduce((a, b) => a + b)
+      beerSize += 10
+      timeMarker.beerSize = beerSize
+      console.log(timeMarker.beerSize);
       return newState
-    case 'ADD_ADVENTURE':
-      newState.places = payload
+    case 'GET_ADVENTURES':
+      newState.myadventures = payload
+      newState.route = '/myAdventures'
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
       const toggleMarker = findMarker(newState, payload)
@@ -43,6 +49,7 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'LOGOUT':
       newState.currentUser = {}
+      newState.myadventures = []
       newState.route = payload
       newState.showMenu = !newState.showMenu
       return newState
@@ -55,6 +62,9 @@ module.exports = (state, { type, payload }) => {
       newState.markers.push(newState.location)
       newState.currentAdventure = null
       return newState
+    case 'CHANGE_ADVENTURE_TO_RENDER':
+      newState.adventureToRender = payload
+      newState.route = '/adventureMap'
     default:
       return newState
   }
