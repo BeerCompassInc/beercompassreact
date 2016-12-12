@@ -172,3 +172,104 @@ test('test add adventure', (t) => {
   t.deepEquals(actual, expected, 'adding an adventures object to places array works')
   t.end()
 })
+
+test('test marker display/not display info', (t) => {
+
+  const state = {
+    markers: [{}]
+  }
+
+  const payload = {
+    markers: [{
+    "showInfo": false
+    }]
+  }
+
+  freeze(state)
+
+  const expected = {
+    markers: [{
+    "showInfo": true,
+    "renderedYet": true
+    }]
+  }
+
+
+  const actual = reducer(state, {type: 'TOGGLE_MARKER_DISPLAY', payload: payload})
+  t.deepEquals(actual, expected, 'the map shows or hides info display when toggled')
+  t.end()
+})
+
+test('test successful login', (t) => {
+
+  const state = {
+    currentUser: {},
+    route: '/'
+  }
+
+  const payload = {
+    "user": {
+      "user_id": 1,
+      "username": "sowisburger"
+    }
+  }
+
+  freeze(state)
+
+  const expected = {
+    currentUser: {
+      "user_id": 1,
+      "username": "sowisburger"
+    },
+    route: '/play',
+    loginDetails: {}
+  }
+
+
+  const actual = reducer(state, {type: 'LOGIN_SUCCESS', payload: payload})
+  t.deepEquals(actual, expected, 'logging in works')
+  t.end()
+})
+
+test('test logging out', (t) => {
+
+  const state = {
+    currentUser: {
+      "user_id": 1,
+      "username": "sowisburger"
+    },
+    route: '/play',
+    showMenu: true
+  }
+
+  freeze(state)
+
+  const expected = {
+    currentUser: {},
+    route: '/',
+    showMenu: false
+  }
+
+
+  const actual = reducer(state, {type: 'LOGOUT', payload: '/'})
+  t.deepEquals(actual, expected, 'logging out works')
+  t.end()
+})
+
+test('test saving current adventure id', (t) => {
+
+  const state = {
+    currentAdventure: null
+  }
+
+  freeze(state)
+
+  const expected = {
+    currentAdventure: 123
+  }
+
+
+  const actual = reducer(state, {type: 'SAVE_CURRENT_ADVENTURE_ID', payload: 123 })
+  t.deepEquals(actual, expected, 'logging out works')
+  t.end()
+})
