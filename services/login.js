@@ -6,9 +6,11 @@ module.exports = ({loginDetails}, dispatch) => {
     .post('https://beercompass-server.herokuapp.com/api/v1/login')
     .send({username, password})
     .withCredentials()
-    .end((err,res) => {
-      console.log(res);
-      if (res.body) dispatch({type: 'LOGIN_SUCCESS', payload: res.body })
-      else dispatch({type: 'CHANGE_ROUTE', payload: '/'})
+    .end((err, res) => {
+      console.log(res)
+      if (!err) {
+        if (res.body) dispatch({ type: 'LOGIN_SUCCESS', payload: res.body })
+        else dispatch({ type: 'CHANGE_ROUTE', payload: '/' })
+      }
     })
 }

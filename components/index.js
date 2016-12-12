@@ -16,7 +16,7 @@ module.exports = ({state, dispatch}) => {
       loginService(state, dispatch)
     }, 1000)
   }
-  console.log(state.loginDetails);
+  console.log(state.loginDetails)
   return (
     <div className='login'>
       <Header state={state} dispatch={dispatch} />

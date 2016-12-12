@@ -7,8 +7,10 @@ const newAdventure = ({ currentUser }, dispatch) => {
     .withCredentials()
     .set('Accept', 'application/json')
     .end((err, res) => {
-      console.log('newAdventure', res)
-      dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body.adventure_id})
+      if (!err) {
+        console.log('newAdventure', res)
+        dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body.adventure_id})
+      }
     })
 }
 
@@ -17,7 +19,9 @@ const storeAdventure = (dispatch) => {
     .post('https://beercompass-server.herokuapp.com/api/v1/saveAdventure')
     .withCredentials()
     .end((err, res) => {
-      dispatch({type: 'STOP_ADVENTURE'})
+      if (!err) {
+        dispatch({type: 'STOP_ADVENTURE'})
+      }
     })
 }
 

@@ -4,7 +4,7 @@ module.exports = (state, { type, payload }) => {
   const newState = clone(state)
 
   switch (type) {
-    case "INIT":
+    case 'INIT':
       return newState
     case 'CHANGE_ROUTE':
       newState.route = payload
@@ -26,17 +26,17 @@ module.exports = (state, { type, payload }) => {
     case 'ADD_TIME_TO_MARKER':
       newState.location = payload
       var targetMarker = newState.markers.find((marker) => {
-        return payload.placeId == marker.placeId
+        return payload.placeId === marker.placeId
       })
-      targetMarker.time.push(targetMarker.time[targetMarker.time.length-1]++)
-      console.log(newState);
+      targetMarker.time.push(targetMarker.time[targetMarker.time.length - 1]++)
+      console.log(newState)
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
       var targetMarker = newState.markers.find((marker) => {
-        return payload.placeId == marker.placeId
+        return payload.placeId === marker.placeId
       })
       targetMarker.showInfo = !targetMarker.showInfo
       targetMarker.renderedYet = true
@@ -53,6 +53,7 @@ module.exports = (state, { type, payload }) => {
       newState.currentUser = {}
       newState.route = payload
       newState.showMenu = !newState.showMenu
+      return newState
     case 'SAVE_CURRENT_ADVENTURE_ID':
       newState.currentAdventure = payload
       return newState
