@@ -1,9 +1,10 @@
 import request from 'superagent'
 import getAdventures from './getAdventures'
+// https://beercompass-server.herokuapp.com
 // http://192.168.1.22:3000
 const newAdventure = ({ currentUser }, dispatch) => {
   request
-    .post('http://192.168.1.22:3000/api/v1/adventures/new')
+    .post('https://beercompass-server.herokuapp.com/api/v1/adventures/new')
     .withCredentials()
     .set('Accept', 'application/json')
     .end((err, res) => {
@@ -24,7 +25,7 @@ const storeAdventure = ({ markers, currentAdventure, currentUser }, dispatch) =>
     }
   })
   request
-    .post('http://192.168.1.22:3000/api/v1/adventures')
+    .post('https://beercompass-server.herokuapp.com/api/v1/adventures')
     .send({positions})
     .withCredentials()
     .end((err, res) => {

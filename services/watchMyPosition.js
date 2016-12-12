@@ -8,7 +8,6 @@ const options = {
 
 module.exports = ({getState, dispatch}) => {
   navigator.geolocation.watchPosition((position, options) => {
-    console.log('fucking working');
     const { latitude, longitude } = position.coords
     request
       .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
