@@ -82,7 +82,7 @@ export default class extends Component {
             center: chicago
         };
 
-    var point1 = new google.maps.LatLng(37.334818, -121.884886)
+    var point1 = new google.maps.LatLng(-41.296478, 174.773951)
 
     this.map = new google.maps.Map(this.refs.map , mapOptions)
     console.log('This map ', this.refs.map);
@@ -90,8 +90,8 @@ export default class extends Component {
 
     let _this = this
 
-    const start = new google.maps.LatLng(37.334818, -121.884886)
-    const end = new google.maps.LatLng(37.441883, -122.143019)
+    const start = new google.maps.LatLng(-41.2969048, 174.77381219999998)
+    const end = new google.maps.LatLng(-41.295036, 174.774760)
     const waypts = [
       {location: point1, stopover: true}]
 
@@ -103,7 +103,7 @@ export default class extends Component {
           destination: end,
           waypoints: waypts,
           optimizeWaypoints: true,
-          travelMode: 'DRIVING'
+          travelMode: 'WALKING'
         }, function(res, status) {
           console.log("Im in the res")
           console.log('im the res ', res);
