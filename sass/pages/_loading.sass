@@ -5,5 +5,9 @@
       font-size: 33px
   .beerGuys
     width: 100vw
-    height: 60vh
-    margin-bottom: 5vh
+    @media (min-width: $tablet)
+      width: 75vw
+    @media (min-width: $desktop)
+      width: 50vw
+    @media (min-width: $desktopHD)
+      width: 25vw

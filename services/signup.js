@@ -8,7 +8,7 @@ module.exports = ({newUserDetails}, dispatch) => {
     .end((err, res) => {
       if (res) {
         if (!err) {
-          dispatch({type: 'SIGNUP_SUCCESS'})
+          dispatch({type: 'CHANGE_ROUTE', payload: '/'})
         }
       }
     })
