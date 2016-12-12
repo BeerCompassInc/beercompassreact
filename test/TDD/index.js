@@ -213,7 +213,7 @@ test('test logging out', (t) => {
 
   const expected = {
     currentUser: {},
-    places: [],
+    myadventures: [],
     route: '/',
     showMenu: false
   }
