@@ -1,20 +1,20 @@
 import React from 'react'
-import { storeAdventure } from '../services/saveAdventure'
+// import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({ state, dispatch }) => {
-  const { title, route, showMenu } = state
+  const { title, route, showMenu, currentUser } = state
   const toggleMenu = () => dispatch({type: 'SHOW_MENU'})
-  const customClass = showMenu ? 'showMenu' : 'hideMenu'
-  const checkIfLoggedIn = () => (route === '/' || route === '/loading' || route === '/signUp') ? <div /> : renderMenuButton()
-  const checkRouteForLogo = route === '/mymap' ? 'hideLogo' : 'showLogo'
+  const toggleMenuClass = showMenu ? 'showMenu' : 'hideMenu'
+  const renderMenuButtonIfLoggedIn = currentUser.username === undefined ? <span/> : renderMenuButton()
+  const hideLogoOnMap = route === '/mymap' ? 'hideLogo' : 'showLogo'
   return (
     <div className='header'>
-      {checkIfLoggedIn()}
+      {renderMenuButtonIfLoggedIn}
       <div className='logo'>
-        <img className={checkRouteForLogo} src='https://cloud.githubusercontent.com/assets/20106637/21035471/34ff658c-be24-11e6-9874-bb9852786797.png' />
+        <img className={hideLogoOnMap} src='https://cloud.githubusercontent.com/assets/20106637/21035471/34ff658c-be24-11e6-9874-bb9852786797.png' />
       </div>
       <h1 className='mainTitle'>{title}</h1>
-      <div className={customClass}>
+      <div className={toggleMenuClass}>
         <ul>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/'}) }} >Home</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/play'}) }} >Play</li>
