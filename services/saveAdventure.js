@@ -8,7 +8,6 @@ const newAdventure = ({ currentUser }, dispatch) => {
     .set('Accept', 'application/json')
     .end((err, res) => {
       if (!err) {
-        console.log('newAdventure', res)
         dispatch({type: 'SAVE_CURRENT_ADVENTURE_ID', payload: res.body.adventure_id})
       }
     })

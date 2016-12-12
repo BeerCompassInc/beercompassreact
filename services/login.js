@@ -1,10 +1,10 @@
 import request from 'superagent'
 
-module.exports = ({loginDetails}, dispatch) => {
-  const {username, password} = loginDetails
+module.exports = ({ loginDetails }, dispatch) => {
+  const { username, password } = loginDetails
   request
     .post('https://beercompass-server.herokuapp.com/api/v1/login')
-    .send({username, password})
+    .send({ username, password })
     .withCredentials()
     .end((err, res) => {
       console.log(res)

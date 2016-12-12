@@ -8,36 +8,35 @@ const options = {
 
 module.exports = ({getState, dispatch}) => {
   navigator.geolocation.watchPosition((position, options) => {
-    var newMarker = buildMarker(position)
-    const { lat, lng } = newMarker
+    const { latitude, longitude } = position.coords
     request
-      .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
+      .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
       .end((err, res) => {
         if (!err) {
-          var placeId = res.body.results[0].place_id
-          newMarker.placeId = placeId
-          if (!hasBeenVisited(getState)) {
+          const placeId = res.body.results[0].place_id
+          const newMarker = buildMarker(latitude, longitude, placeId)
+          if (!hasBeenVisited(getState, placeId)) {
             newMarker.time = [1]
             dispatch({type: 'ADD_NEW_MARKER', payload: newMarker})
-          } else {
-            dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
           }
+          else dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
         }
       })
   })
 }
 
-function buildMarker (position) {
+function buildMarker (lat, lng, placeId) {
   return {
-    lat: position.coords.latitude,
-    lng: position.coords.longitude,
+    lat,
+    lng,
     showInfo: false,
-    renderedYet: false
+    renderedYet: false,
+    placeId
   }
 }
 
-function hasBeenVisited (getState) {
-  return getState().markers.find((place) => {
-    return place.placeId === placeId
+function hasBeenVisited (getState, placeId) {
+  return getState().markers.find((marker) => {
+    return marker.placeId === placeId
   })
 }
