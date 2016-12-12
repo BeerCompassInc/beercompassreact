@@ -49,7 +49,7 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'LOGOUT':
       newState.currentUser = {}
-      newState.places = []
+      newState.myadventures = []
       newState.route = payload
       newState.showMenu = !newState.showMenu
       return newState
