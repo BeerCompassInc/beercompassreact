@@ -11,7 +11,6 @@
     "test:BDD": "chimp --watch",
     "build:js": "browserify . -o bundle.js -g uglifyify",
     "build:css": "sass --update sass/style.sass:index.css",
-    "test": "browserify test/index.js | node | tap-spec",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
     "push": "gh-pages -d dist",
     "deploy": "npm run build:js && npm run build:css && npm run dist && npm run push"
