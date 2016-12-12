@@ -25,21 +25,17 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'ADD_TIME_TO_MARKER':
       newState.location = payload
-      var targetMarker = newState.markers.find((marker) => {
-        return payload.placeId === marker.placeId
-      })
-      targetMarker.time.push(targetMarker.time[targetMarker.time.length - 1]++)
+      const timeMarker = findMarker(newState, payload)
+      timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
       console.log(newState)
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
-      var targetMarker = newState.markers.find((marker) => {
-        return payload.placeId === marker.placeId
-      })
-      targetMarker.showInfo = !targetMarker.showInfo
-      targetMarker.renderedYet = true
+      const toggleMarker = findMarker(newState, payload)
+      toggleMarker.showInfo = !toggleMarker.showInfo
+      toggleMarker.renderedYet = true
       return newState
     case 'LOGIN_SUCCESS':
       newState.currentUser = payload.user
@@ -66,4 +62,8 @@ module.exports = (state, { type, payload }) => {
     default:
       return newState
   }
+}
+
+function findMarker (newState, payload) {
+  return newState.markers.find((marker) => payload.placeId === marker.placeId)
 }

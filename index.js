@@ -43,7 +43,7 @@ const route = Router({ default: '/404' }, [
 ])
 
 subscribe(() => {
-  var Component = route(getState().route)
+  const Component = route(getState().route)
   ReactDOM.render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
 })
 

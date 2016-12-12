@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './header'
 import signupService from '../services/signup'
 
-module.exports = ({state, dispatch}) => {
+module.exports = ({ state, dispatch }) => {
   const saveUsername = (e) => dispatch({type: 'NEW_USER_DETAILS', payload: {change: 'username', value: e.target.value}})
 
   const savePassword = (e) => dispatch({type: 'NEW_USER_DETAILS', payload: {change: 'password', value: e.target.value}})

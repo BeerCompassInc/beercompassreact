@@ -1,7 +1,7 @@
 import React from 'react'
 import { storeAdventure } from '../services/saveAdventure'
 
-module.exports = ({state, dispatch}) => {
+module.exports = ({ state, dispatch }) => {
   const { title, route, showMenu } = state
   const toggleMenu = () => dispatch({type: 'SHOW_MENU'})
   const customClass = showMenu ? 'showMenu' : 'hideMenu'

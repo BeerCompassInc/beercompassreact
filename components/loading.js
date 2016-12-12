@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './header'
 
-module.exports = ({state, dispatch}) => {
+module.exports = ({ state, dispatch }) => {
   return (
     <div className='loading'>
       <Header state={state} dispatch={dispatch} />
