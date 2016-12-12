@@ -7,11 +7,12 @@
     "start": "concurrently \"npm run watch:sass\" \"npm run serve:client\"",
     "watch:sass": "sass --watch sass/style.sass:index.css",
     "serve:client": "budo . -d --serve bundle.js --live",
-    "build": "browserify . -o bundle.js -g uglifyify",
+    "build:js": "browserify . -o bundle.js -g uglifyify",
+    "build:css": "sass --update?? sass/style.sass:index.css",
     "test": "browserify test/index.js | node | tap-spec",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
     "push": "gh-pages -d dist",
-    "deploy": "npm run build && npm run dist && npm run push"
+    "deploy": "npm run build:js && npm run build:css && npm run dist && npm run push"
   },
   "browserify": {
     "transform": [

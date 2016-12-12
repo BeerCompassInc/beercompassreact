@@ -6,25 +6,7 @@ module.exports = ({state, dispatch}) => {
   const mapContainer = <div style={{height: '100%', width: '100%'}} />
 
   const pins = markers.map((marker, i) => {
-    const size = marker.time.map((time) => {
-      return 3 / time
-    })
-    let beerSize = size.reduce((a, b) => {
-      return a + b
-    })
-    beerSize += 10
-    const icon = {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Emoji_u1f37a.svg/2000px-Emoji_u1f37a.svg.png',
-      scaledSize: new google.maps.Size(beerSize, beerSize)
-    }
-    const markerOnMap = {
-      position: {
-        lat: marker.lat,
-        lng: marker.lng
-      },
-      animation: marker.renderedYet ? null : google.maps.Animation.DROP,
-      icon
-    }
+    const markerOnMap = buildMarker(marker, )
 
     return <Marker
       onClick={() => {
@@ -48,8 +30,13 @@ module.exports = ({state, dispatch}) => {
           defaultZoom={15}
           defaultCenter={location}
           options={{ streetViewControl: false, mapTypeControl: false }}>
-          { pins }
+          <Pins markers={someMarkers} />
         </GoogleMap>
-    } />
+      }
+    />
   )
+}
+
+function buildMarker(.... ) {
+
 }

@@ -8,32 +8,37 @@ const options = {
 
 module.exports = ({getState, dispatch}) => {
   navigator.geolocation.watchPosition((position, options) => {
-    var newMarker = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-      showInfo: false,
-      renderedYet: false
-    }
-    console.log(newMarker)
+    var newMarker = buildMarker(position) 
+    const { placeId, lat, lng time } = newMarker
+
     request
-      .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${newMarker.lat},${newMarker.lng}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
+      .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_KEY}`)
       .end((err, res) => {
         if (!err) {
           var placeId = res.body.results[0].place_id
-          newMarker.placeId = placeId
-          var check = getState().markers.find((place) => {
-            return place.placeId === placeId
-          })
-          console.log(check)
-          if (!check) {
-            console.log('if')
-            newMarker.time = [1]
+
+          if (!hasBeenAtThisPlace(getState) {
+            newMarker.time = [1] // should this be done by the reducer?
             dispatch({type: 'ADD_NEW_MARKER', payload: newMarker})
           } else {
-            console.log('else')
             dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
           }
         }
       })
+  })
+}
+
+function buildMarker(position) {
+  return {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+    showInfo: false,
+    renderedYet: false
+  }
+}
+
+function hasBeenAtThisPlace(getState) {
+  return getState().markers.find((place) => {
+    return place.placeId === placeId
   })
 }

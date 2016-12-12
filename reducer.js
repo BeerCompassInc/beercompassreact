@@ -4,8 +4,6 @@ module.exports = (state, { type, payload }) => {
   const newState = clone(state)
 
   switch (type) {
-    case 'INIT':
-      return newState
     case 'CHANGE_ROUTE':
       newState.route = payload
       newState.showMenu = false
@@ -29,7 +27,6 @@ module.exports = (state, { type, payload }) => {
         return payload.placeId === marker.placeId
       })
       targetMarker.time.push(targetMarker.time[targetMarker.time.length - 1]++)
-      console.log(newState)
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload
@@ -58,10 +55,12 @@ module.exports = (state, { type, payload }) => {
       newState.currentAdventure = payload
       return newState
     case 'STOP_ADVENTURE':
-      newState.markers = []
-      newState.route = '/myAdventures'
-      newState.markers.push(newState.location)
-      newState.currentAdventure = null
+      Object.assign(newState, {
+        markers: [],
+        route: '/myAdventures',
+        markers: [newState.markers, ...newState.location]
+        currentAdventure: null
+      })
       return newState
     default:
       return newState
