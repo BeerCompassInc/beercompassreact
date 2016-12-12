@@ -1,20 +1,18 @@
-# quickstart
+# Beer Compass
 
-yo-yo redux sheet-router
+🍻 track your alcoholic adventure
 
-using the lemon placeholder system
+##live site
 
-##demo
-
-https://bradymat.github.io/quickstart/
+https://beercompassinc.github.io/beercompassreact/
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ### install
 
 ```
-git clone https://github.com/bradymat/quickstart
-cd quickstart
+git clone https://github.com/beercompassinc/beercompassreact
+cd beercompassreact
 npm install
 ```
 
