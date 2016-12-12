@@ -5,9 +5,11 @@ module.exports = ({newUserDetails}, dispatch) => {
   request
     .post('https://beercompass-server.herokuapp.com/api/v1/signup')
     .send({username, password, email})
-    .end((err,res) => {
+    .end((err, res) => {
       if (res) {
-        dispatch({type: 'SIGNUP_SUCCESS'})
+        if (!err) {
+          dispatch({type: 'SIGNUP_SUCCESS'})
+        }
       }
     })
 }

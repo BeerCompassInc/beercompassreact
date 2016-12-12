@@ -14,24 +14,25 @@ module.exports = ({getState, dispatch}) => {
       showInfo: false,
       renderedYet: false
     }
-    console.log(newMarker);
+    console.log(newMarker)
     request
       .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${newMarker.lat},${newMarker.lng}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
       .end((err, res) => {
-        var placeId = res.body.results[0].place_id
-        newMarker.placeId = placeId
-        var check = getState().markers.find((place) => {
-          return place.placeId == placeId
-        })
-        console.log(check);
-        if (!check) {
-          console.log('if');
-          newMarker.time = [1]
-          dispatch({type: 'ADD_NEW_MARKER' , payload: newMarker})
-        }
-        else {
-          console.log('else');
-          dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
+        if (!err) {
+          var placeId = res.body.results[0].place_id
+          newMarker.placeId = placeId
+          var check = getState().markers.find((place) => {
+            return place.placeId === placeId
+          })
+          console.log(check)
+          if (!check) {
+            console.log('if')
+            newMarker.time = [1]
+            dispatch({type: 'ADD_NEW_MARKER', payload: newMarker})
+          } else {
+            console.log('else')
+            dispatch({type: 'ADD_TIME_TO_MARKER', payload: newMarker})
+          }
         }
       })
   })

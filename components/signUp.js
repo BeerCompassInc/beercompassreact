@@ -2,7 +2,6 @@ import React from 'react'
 import Header from './header'
 import signupService from '../services/signup'
 
-
 module.exports = ({state, dispatch}) => {
   const saveUsername = (e) => dispatch({type: 'NEW_USER_DETAILS', payload: {change: 'username', value: e.target.value}})
 
@@ -14,7 +13,7 @@ module.exports = ({state, dispatch}) => {
     e.preventDefault()
     signupService(state, dispatch)
   }
-  console.log(state.newUserDetails);
+  console.log(state.newUserDetails)
   return (
     <div className='signUp'>
       <Header state={state} dispatch={dispatch} />

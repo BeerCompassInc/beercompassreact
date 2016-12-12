@@ -16,7 +16,7 @@ import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
 
 const initState = {
-  title: 'Beercompass',
+  title: 'Beer Compass',
   route: '/',
   loginDetails: {},
   currentUser: {},
@@ -29,7 +29,6 @@ const initState = {
 
 const store = createStore(reducer, initState)
 const { getState, dispatch, subscribe } = store
-
 
 watchPosition(store)
 getAdventures(dispatch)
