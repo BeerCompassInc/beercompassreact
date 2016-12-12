@@ -273,3 +273,48 @@ test('test saving current adventure id', (t) => {
   t.deepEquals(actual, expected, 'logging out works')
   t.end()
 })
+
+test('test stopping current adventure', (t) => {
+
+  const state = {
+    location: {
+        lat: 1234,
+        long: 1234,
+        showInfo: false,
+        renderedYet: false
+      },
+    markers: [{
+      lat: 1204,
+      long: 1734,
+      showInfo: false,
+      renderedYet: false
+    }],
+    route: '/mymap',
+    currentAdventure: 123
+  }
+
+  freeze(state)
+
+  const expected = {
+    location: {
+      lat: 1234,
+      long: 1234,
+      renderedYet: false,
+      showInfo: false
+    },
+    markers: [{
+      lat: 1234,
+      long: 1234,
+      renderedYet: false,
+      showInfo: false
+    }],
+    route: '/myAdventures',
+    currentAdventure: null
+  }
+
+
+
+  const actual = reducer(state, {type: 'STOP_ADVENTURE'})
+  t.deepEquals(actual, expected, 'stopping the adventure works')
+  t.end()
+})
