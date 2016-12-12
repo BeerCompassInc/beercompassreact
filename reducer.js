@@ -29,6 +29,7 @@ module.exports = (state, { type, payload }) => {
         return payload.placeId == marker.placeId
       })
       targetMarker.time.push(targetMarker.time[targetMarker.time.length-1]++)
+      console.log(newState);
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload

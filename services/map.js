@@ -16,6 +16,7 @@ module.exports = ({state, dispatch}) => {
     const icon = {
       url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Emoji_u1f37a.svg/2000px-Emoji_u1f37a.svg.png',
       scaledSize: new google.maps.Size(beerSize, beerSize)
+      // scaledSize: new google.maps.Size(30, 30)
     }
     const markerOnMap = {
       position: {
