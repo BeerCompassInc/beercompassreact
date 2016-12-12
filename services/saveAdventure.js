@@ -1,7 +1,6 @@
 import request from 'superagent'
 import getAdventures from './getAdventures'
-// https://beercompass-server.herokuapp.com
-// http://192.168.1.22:3000
+
 const newAdventure = ({ currentUser }, dispatch) => {
   request
     .post('https://beercompass-server.herokuapp.com/api/v1/adventures/new')
