@@ -21,6 +21,9 @@ module.exports = ({ state, dispatch }) => {
           <li onClick={() => { dispatch({type: 'LOGOUT', payload: '/'}) }} >Logout</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'}) }} >My Adventures</li>
           <li onClick={() => { dispatch({type: 'STOP_ADVENTURE'}) }} className='stopButton' >Stop</li>
+          <li className="captureButtons">Capture Image<input type="file" accept="image/*" id="capture" capture="camera" /></li>
+          <li className="captureButtons">Capture Video<input type="file" accept="video/*" id="capture" capture="camcorder" /></li> 
+
         </ul>
       </div>
     </div>
