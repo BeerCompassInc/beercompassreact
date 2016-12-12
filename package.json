@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run watch:sass\" \"npm run serve:client\"",
+    "test": "npm run test:TDD && npm run test:BDD:update",
     "watch:sass": "sass --watch sass/style.sass:index.css",
     "serve:client": "budo . -d --serve bundle.js --live",
     "test:TDD": "browserify test/TDD/index.js | node | tap-spec",
-    "test:BDD": "chimp --watch",
+    "test:BDD:watch": "chimp --watch",
+    "test:BDD:update": "chimp --update",
     "build:js": "browserify . -o bundle.js -g uglifyify",
     "build:css": "sass --update sass/style.sass:index.css",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
