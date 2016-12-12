@@ -38,10 +38,7 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "budo": "^9.2.2",
-<<<<<<< HEAD
     "chimp": "^0.44.0",
-=======
->>>>>>> 6809c3fbcfea71f66c3c9fc1d98e6cd82cc1214e
     "clone": "^2.1.0",
     "concurrently": "^3.1.0",
     "cucumber-assert": "^1.0.4",
@@ -57,10 +54,5 @@
     "tape": "^4.5.1",
     "uglifyify": "^3.0.1",
     "watchify": "^3.7.0"
-<<<<<<< HEAD
-  },
-  "dependencies": {}
-=======
   }
->>>>>>> 6809c3fbcfea71f66c3c9fc1d98e6cd82cc1214e
 }
