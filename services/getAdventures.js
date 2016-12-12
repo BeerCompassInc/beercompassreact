@@ -6,8 +6,7 @@ module.exports = (dispatch) => {
     .get('https://beercompass-server.herokuapp.com/api/v1/adventures')
     .withCredentials()
     .end((err, res) => {
-      console.log(res);
-      const places = res.body
+    const places = res.body
     const adventureIdFinder = places.map((place) => place.adventure_id)
     const numberOfAdventures = Math.max(...adventureIdFinder)
 
