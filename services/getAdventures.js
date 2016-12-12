@@ -3,7 +3,7 @@ import request from 'superagent'
 module.exports = (dispatch) => {
   dispatch({type: 'CHANGE_ROUTE', payload: '/loading'})
   request
-    .get('https://beercompass-server.herokuapp.com/api/v1/adventures/')
+    .get('https://beercompass-server.herokuapp.com/api/v1/adventures')
     .withCredentials()
     .end((err, res) => {
       console.log(res);
