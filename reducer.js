@@ -29,7 +29,7 @@ module.exports = (state, { type, payload }) => {
       timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
       return newState
     case 'GET_ADVENTURES':
-      newState.places = payload
+      newState.myadventures = payload
       newState.route = '/myAdventures'
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
@@ -60,6 +60,9 @@ module.exports = (state, { type, payload }) => {
       newState.markers.push(newState.location)
       newState.currentAdventure = null
       return newState
+    case 'CHANGE_ADVENTURE_TO_RENDER':
+      newState.adventureToRender = payload
+      newState.route = '/adventureMap'
     default:
       return newState
   }
