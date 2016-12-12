@@ -11,6 +11,7 @@ import Loading from './components/loading'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import MyAdventures from './components/myadventures'
+import TrackAdventure from './components/trackAdventure'
 
 import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
@@ -39,7 +40,8 @@ const route = Router({ default: '/404' }, [
   ['/loading', (params) => Loading],
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
-  ['/myAdventures', (params) => MyAdventures]
+  ['/myAdventures', (params) => MyAdventures],
+  ['/trackAdventure', (params) => TrackAdventure]
 ])
 
 subscribe(() => {
