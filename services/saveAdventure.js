@@ -14,7 +14,7 @@ const newAdventure = ({ currentUser }, dispatch) => {
 
 const storeAdventure = (dispatch) => {
   request
-    .post('http://localhost:3000/api/v1/saveAdventure')
+    .post('https://beercompass-server.herokuapp.com/api/v1/saveAdventure')
     .withCredentials()
     .end((err, res) => {
       dispatch({type: 'STOP_ADVENTURE'})
