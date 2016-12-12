@@ -3,7 +3,6 @@ import Header from './header'
 
 module.exports = ({ state, dispatch }) => {
   const { myadventures } = state
-  console.log(state.adventureToRender);
   return (
     <div>
       <Header state={state} dispatch={dispatch} />

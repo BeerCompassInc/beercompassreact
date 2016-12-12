@@ -46,17 +46,13 @@ function buildMarker (marker) {
   }
 }
 
-function buildIcon (marker) {
-  // const size = marker.time.map((time) => {
-  //   return 3 / time
-  // })
-  // let beerSize = size.reduce((a, b) => {
-  //   return a + b
-  // })
+function buildIcon ({beerSize}) {
+  // const size = marker.time.map((time) => 3 / time)
+  // let beerSize = size.reduce((a, b) => a + b)
   // beerSize += 10
   const icon = {
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Emoji_u1f37a.svg/2000px-Emoji_u1f37a.svg.png',
-    scaledSize: new google.maps.Size(20, 20)
+    scaledSize: new google.maps.Size(beerSize, beerSize)
   }
   return icon
 }
