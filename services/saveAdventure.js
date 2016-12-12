@@ -2,7 +2,7 @@ import request from 'superagent'
 
 const newAdventure = ({ currentUser }, dispatch) => {
   request
-    .post('http://localhost:3000/api/v1/newAdventure')
+    .post('https://beercompass-server.herokuapp.com/api/v1/newAdventure')
     .send({user: currentUser})
     .withCredentials()
     .set('Accept', 'application/json')
