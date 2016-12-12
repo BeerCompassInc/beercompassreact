@@ -1,13 +1,15 @@
 import request from 'superagent'
 
 module.exports = ({newUserDetails}, dispatch) => {
-  const {username, password, email} = newUserDetails
+  const { username, password, email } = newUserDetails
   request
-    .post('http://localhost:3000/signup')
+    .post('https://beercompass-server.herokuapp.com/api/v1/signup')
     .send({username, password, email})
-    .end((err,res) => {
+    .end((err, res) => {
       if (res) {
-        dispatch({type: 'SIGNUP_SUCCESS'})
+        if (!err) {
+          dispatch({type: 'SIGNUP_SUCCESS'})
+        }
       }
     })
 }

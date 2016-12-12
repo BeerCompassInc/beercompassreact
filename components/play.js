@@ -2,8 +2,7 @@ import React from 'react'
 import Header from './header'
 import { newAdventure } from '../services/saveAdventure'
 
-module.exports = ({state, dispatch}) => {
-  console.log(state.currentUser);
+module.exports = ({ state, dispatch }) => {
   const goToMap = () => {
     dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})
     newAdventure(state, dispatch)
