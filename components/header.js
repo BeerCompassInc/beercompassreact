@@ -1,4 +1,5 @@
 import React from 'react'
+import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({ state, dispatch }) => {
   const { title, route, showMenu, currentUser } = state
@@ -20,7 +21,7 @@ module.exports = ({ state, dispatch }) => {
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'}) }} >My Map</li>
           <li onClick={() => { dispatch({type: 'LOGOUT', payload: '/'}) }} >Logout</li>
           <li onClick={() => { dispatch({type: 'CHANGE_ROUTE', payload: '/myAdventures'}) }} >My Adventures</li>
-          <li onClick={() => { dispatch({type: 'STOP_ADVENTURE'}) }} className='stopButton' >Stop</li>
+          <li onClick={() => { storeAdventure(state, dispatch) }} className='stopButton' >Stop</li>
         </ul>
       </div>
     </div>

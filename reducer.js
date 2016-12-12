@@ -28,8 +28,9 @@ module.exports = (state, { type, payload }) => {
       const timeMarker = findMarker(newState, payload)
       timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
       return newState
-    case 'ADD_ADVENTURE':
+    case 'GET_ADVENTURES':
       newState.places = payload
+      newState.route = '/myAdventures'
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
       const toggleMarker = findMarker(newState, payload)
@@ -46,6 +47,7 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'LOGOUT':
       newState.currentUser = {}
+      newState.places = []
       newState.route = payload
       newState.showMenu = !newState.showMenu
       return newState

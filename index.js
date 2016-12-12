@@ -12,7 +12,6 @@ import Play from './components/play'
 import MyMap from './components/mymap'
 import MyAdventures from './components/myadventures'
 
-import getAdventures from './services/getAdventures'
 import watchPosition from './services/watchMyPosition'
 
 const initState = {
@@ -31,7 +30,6 @@ const store = createStore(reducer, initState)
 const { getState, dispatch, subscribe } = store
 
 watchPosition(store)
-getAdventures(dispatch)
 
 const route = Router({ default: '/404' }, [
   ['/', (params) => Login],
