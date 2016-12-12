@@ -116,9 +116,16 @@
     .loading .mainTitle {
       font-size: 33px; } }
 .loading .beerGuys {
-  width: 100vw;
-  height: 60vh;
-  margin-bottom: 5vh; }
+  width: 100vw; }
+  @media (min-width: 750px) {
+    .loading .beerGuys {
+      width: 75vw; } }
+  @media (min-width: 1000px) {
+    .loading .beerGuys {
+      width: 50vw; } }
+  @media (min-width: 1200px) {
+    .loading .beerGuys {
+      width: 25vw; } }
 
 body {
   background-color: #000;
