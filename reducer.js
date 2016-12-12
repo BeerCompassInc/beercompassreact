@@ -27,7 +27,6 @@ module.exports = (state, { type, payload }) => {
       newState.location = payload
       const timeMarker = findMarker(newState, payload)
       timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
-      console.log(newState)
       return newState
     case 'ADD_ADVENTURE':
       newState.places = payload
