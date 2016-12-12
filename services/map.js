@@ -50,9 +50,9 @@ function buildIcon ({beerSize}) {
   // const size = marker.time.map((time) => 3 / time)
   // let beerSize = size.reduce((a, b) => a + b)
   // beerSize += 10
-  const icon = {
+  console.log(beerSize);
+  return {
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Emoji_u1f37a.svg/2000px-Emoji_u1f37a.svg.png',
     scaledSize: new google.maps.Size(beerSize, beerSize)
   }
-  return icon
 }
