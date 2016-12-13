@@ -17,14 +17,20 @@
 
 .showMenu
   z-index: 10
-  width: 80vw
+  width: 70vw
   position: absolute
   height: 100vh
   top: 0
   background-color: #404247
   color: $primary-color
+  @media (min-width: $phablet)
+    width: 60vw
+  @media (min-width: $tablet)
+    width: 40vw
   @media (min-width: $desktop)
     width: 30vw
+  @media (min-width: $desktopHD)
+    width: 20vw
   ul
     height: 100vh
     margin-top: 30%
