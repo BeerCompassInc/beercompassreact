@@ -73,8 +73,7 @@ test('pushes marker to array', (t) => {
   var newMarker = {
     lat: 1234,
     long: 1234,
-    showInfo: false,
-    renderedYet: false
+    showInfo: false
   }
 
   const state = {
@@ -88,14 +87,12 @@ test('pushes marker to array', (t) => {
     location: {
         lat: 1234,
         long: 1234,
-        showInfo: false,
-        renderedYet: false
+        showInfo: false
       },
     markers: [{
       lat: 1234,
       long: 1234,
-      showInfo: false,
-      renderedYet: false
+      showInfo: false
     }]
   }
   const action = {type: 'ADD_NEW_MARKER', payload: newMarker}
@@ -155,10 +152,9 @@ test('test marker display/not display info', (t) => {
   freeze(state)
 
   const expected = {
-    markers: [{
-    "showInfo": true,
-    "renderedYet": true
-    }]
+    markers: [
+      {showInfo: true}
+    ]
   }
 
 
@@ -248,14 +244,12 @@ test('test stopping current adventure', (t) => {
     location: {
         lat: 1234,
         long: 1234,
-        showInfo: false,
-        renderedYet: false
+        showInfo: false
       },
     markers: [{
       lat: 1204,
       long: 1734,
-      showInfo: false,
-      renderedYet: false
+      showInfo: false
     }],
     route: '/mymap',
     currentAdventure: 123
@@ -267,13 +261,11 @@ test('test stopping current adventure', (t) => {
     location: {
       lat: 1234,
       long: 1234,
-      renderedYet: false,
       showInfo: false
     },
     markers: [{
       lat: 1234,
       long: 1234,
-      renderedYet: false,
       showInfo: false
     }],
     route: '/myAdventures',
