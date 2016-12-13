@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Menu from './menu'
 import { newAdventure } from '../services/saveAdventure'
 import Logo from './logo'
 
@@ -10,7 +10,7 @@ module.exports = ({ state, dispatch }) => {
   }
   return (
     <div className='playDiv'>
-      <Header state={state} dispatch={dispatch} />
+      <Menu state={state} dispatch={dispatch} />
       <Logo />
       <div className='containerWithLogo'>
         <h3>Start your adventure</h3>

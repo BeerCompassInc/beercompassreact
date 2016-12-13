@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Menu from './menu'
 import Logo from './logo'
 import loginService from '../services/login'
 
@@ -14,7 +14,7 @@ module.exports = ({ state, dispatch }) => {
   }
   return (
     <div>
-      <Header state={state} dispatch={dispatch} />
+      <Menu state={state} dispatch={dispatch} />
       <Logo />
       <div className='login containerWithLogo'>
         <form>

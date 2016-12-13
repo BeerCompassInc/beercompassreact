@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Menu from './menu'
 import signupService from '../services/signup'
 import Logo from './logo'
 
@@ -13,7 +13,7 @@ module.exports = ({ state, dispatch }) => {
   }
   return (
     <div className='signUp'>
-      <Header state={state} dispatch={dispatch} />
+      <Menu state={state} dispatch={dispatch} />
       <Logo />
       <div className='containerWithLogo'>
         <form>
