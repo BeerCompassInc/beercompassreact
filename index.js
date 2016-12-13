@@ -26,7 +26,8 @@ const initState = {
   location: {},
   markers: [],
   myadventures: {},
-  adventureToRender: null
+  adventureToRender: null,
+  pointsOfInterest: 'pubs'
 }
 
 const store = createStore(reducer, initState)

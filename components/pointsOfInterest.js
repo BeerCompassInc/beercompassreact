@@ -9,7 +9,8 @@ export default class extends Component {
   render() {
     return(
       <div className='mapDiv'>
-        <PointsOfInterest state={this.props.state} dispatch={this.props.dispatch}/>
+        <Menu state={this.props.state} dispatch={this.props.dispatch} />
+        <PointsOfInterest state={this.props.state} dispatch={this.props.dispatch} />
       </div>
     )
   }
