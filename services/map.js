@@ -1,17 +1,27 @@
 import React from 'react'
 import { GoogleMapLoader, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import coolOrangeNightMap from '../coolOrangeNightMap.json'
+
+// var coolOrangeNightMap = require('../coolOrangeNightMap.json')
 
 module.exports = ({ state, dispatch }) => {
   const { route, location, adventureToRender, myadventures } = state
   const markers = route === '/mymap' ? state.markers : myadventures[adventureToRender]
+
   return (
     <GoogleMapLoader
       containerElement={<div style={{height: '100%', width: '100%'}} />}
       googleMapElement={
         <GoogleMap
-          defaultZoom={15}
+          defaultZoom={19}
           defaultCenter={location}
-          options={{ streetViewControl: false, mapTypeControl: false }}>
+          defaultOptions={{
+            styles: coolOrangeNightMap,
+            streetViewControl: false,
+            mapTypeControl: false,
+            minZoom: 12
+          }}
+        >
           { makeMarkers(markers, dispatch) }
         </GoogleMap>
     } />
