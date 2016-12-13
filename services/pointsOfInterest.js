@@ -1,71 +1,66 @@
 import React, { Component } from 'react'
+import { GeolocationMarker } from 'geolocation-marker'
 
 export default class extends Component {
   constructor(props) {
     super()
   }
-
-  shouldComponentUpdate() {
-    return true
-  }
-
   componentDidMount() {
-    const { location, pointsOfInterest } = this.props.state
-    const dispatch = this.props.dispatch
+    this.renderMap()
+  }
+  render() {
+    return(
+      <div>
+        <div id='poiMap' ref='map' style={{width: '100vw', height: '90vh'}}></div>
+      </div>
+    )
+  }
+  renderMap () {
+    const { props, refs } = this
+    const { location } = props.state
     var mapOptions = {
-        zoom: 16,
+        zoom: 15,
         center: location,
         options: { streetViewControl: false, mapTypeControl: false }
     }
-
-    this.map = new google.maps.Map(this.refs.map , mapOptions)
-    let _this = this
-    var infowindow = new google.maps.InfoWindow()
-    var service = new google.maps.places.PlacesService(this.map);
+    this.googleMap = new google.maps.Map(refs.map , mapOptions)
+    const GeoMarker = new GeolocationMarker(this.googleMap)
+    this.renderMarkers('pubs', 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png')
+    this.renderMarkers('burgers', 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png')
+    this.renderMarkers('kebebs', 'https://cdn1.iconfinder.com/data/icons/fast-foody/64/kebab-512.png')
+  }
+  renderMarkers (interest, iconImage) {
+    const { googleMap, props } = this
+    const { location } = props.state
+    const infowindow = new google.maps.InfoWindow()
+    const service = new google.maps.places.PlacesService(googleMap)
     service.textSearch({
       location,
       radius: 500,
-      query: pointsOfInterest
+      query: interest
     }, callback)
 
     function callback(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          createMarker(results[i]);
+          createMarker(results[i])
         }
       }
     }
-
-    const icon = {url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Emoji_u1f37a.svg/2000px-Emoji_u1f37a.svg.png',
-    scaledSize: new google.maps.Size(30, 30)}
-
-    function createMarker(place) {
-      var placeLoc = place.geometry.location;
+    const icon = {
+      url: iconImage,
+      scaledSize: new google.maps.Size(40, 40)
+    }
+    function createMarker(place, map) {
       var marker = new google.maps.Marker({
-        map: _this.map,
+        map: googleMap,
         position: place.geometry.location,
-        icon: icon
-      });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(_this.map, this)
-    })
-  }
-}
-  render() {
-    const dispatch = this.props.dispatch
-    return(
-      <div>
-        <div className='filters' style={{display: 'inline-block'}}>
-          <button onClick={() => dispatch({type: 'CHANGE_POI', payload: 'pubs'})} style={{width: '20vw', margin: 0}}>Pubs</button>
-          <button onClick={() => dispatch({type: 'CHANGE_POI', payload: 'atms'})} style={{width: '20vw', margin: 0}}>ATMs</button>
-          <button onClick={() => dispatch({type: 'CHANGE_POI', payload: 'burgers'})} style={{width: '20vw', margin: 0}}>Burgers</button>
-          <button onClick={() => dispatch({type: 'CHANGE_POI', payload: 'kebabs'})} style={{width: '20vw', margin: 0}}>Kebabs</button>
-
-        </div>
-        <div id='map' ref='map' style={{width: '100vw', height: '80vh'}}></div>
-      </div>
-    )
+        icon
+      })
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name)
+        infowindow.open(googleMap)
+      })
+    }
   }
 }
