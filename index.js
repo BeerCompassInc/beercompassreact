@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { createStore } from 'redux'
 import Router from 'sheet-router'
 
@@ -31,7 +31,6 @@ const initState = {
 
 const store = createStore(reducer, initState)
 const { getState, dispatch, subscribe } = store
-
 watchPosition(store)
 
 const route = Router({ default: '/404' }, [
@@ -47,7 +46,7 @@ const route = Router({ default: '/404' }, [
 
 subscribe(() => {
   const Component = route(getState().route)
-  ReactDOM.render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
+  render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
 })
 
 dispatch({type: 'INIT'})

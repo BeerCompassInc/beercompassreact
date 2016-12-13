@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import Menu from './menu'
 import PointsOfInterest from '../services/pointsOfInterest'
 
-module.exports = ({state, dispatch}) =>
-    <div className='mapDiv'>
-      <Menu state={state} dispatch={dispatch} />
-      <PointsOfInterest state={state}/>
-    </div>
+export default class extends Component {
+  constructor(props) {
+    super()
+  }
+  render() {
+    return(
+      <div className='mapDiv'>
+        <PointsOfInterest state={this.props.state} dispatch={this.props.dispatch}/>
+      </div>
+    )
+  }
+}

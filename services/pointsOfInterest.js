@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
-import request from 'superagent'
 
 export default class extends Component {
-
+  constructor(props) {
+    super()
+  }
   componentDidMount() {
-
-    var wellington = new google.maps.LatLng(-41.296798, 174.773789);
-        var mapOptions = {
-            zoom: 16,
-            center: wellington
-        };
+    const { location } = this.props.state
+    console.log('props', this.props.state);
+    var mapOptions = {
+        zoom: 16,
+        center: location
+    }
 
     this.map = new google.maps.Map(this.refs.map , mapOptions)
-    console.log('This map ', this.refs.map);
-
     let _this = this
-
-
     var infowindow = new google.maps.InfoWindow()
     var service = new google.maps.places.PlacesService(this.map);
     service.textSearch({
-      location: wellington,
+      location,
       radius: 500,
       query: 'atm'
     }, callback);
