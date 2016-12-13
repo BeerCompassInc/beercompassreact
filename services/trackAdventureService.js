@@ -18,7 +18,7 @@ export default class extends Component {
     //   })
 
 
-    var chicago = new google.maps.LatLng(37.334818, -121.884886);
+    var chicago = new google.maps.LatLng(-41.296798, 174.773789);
         var mapOptions = {
             zoom: 7,
             center: chicago
@@ -30,10 +30,10 @@ export default class extends Component {
     let _this = this
 
 
-    infowindow = new google.maps.InfoWindow()
-    var service = new google.maps.places.PlacesService(map);
+    var infowindow = new google.maps.InfoWindow()
+    var service = new google.maps.places.PlacesService(this.map);
     service.nearbySearch({
-      location: pyrmont,
+      location: chicago,
       radius: 500,
       type: ['pub']
     }, callback);
@@ -49,7 +49,7 @@ export default class extends Component {
     function createMarker(place) {
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
-        map: map,
+        map: _this.map,
         position: place.geometry.location
       });
     }
