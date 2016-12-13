@@ -6,7 +6,6 @@ module.exports = (dispatch) => {
     .withCredentials()
     .end((err, res) => {
     const places = res.body
-    console.log(places);
     const adventureIdFinder = places.map((place) => place.adventure_id)
     const numberOfAdventures = Math.max(...adventureIdFinder)
 

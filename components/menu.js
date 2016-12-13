@@ -3,12 +3,13 @@ import getAdventures from '../services/getAdventures'
 import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({ state, dispatch }) => {
-  const { title, route, showMenu, currentUser, myadventures } = state
+  const { title, route, showMenu, currentUser, myadventures, currentAdventure } = state
+  console.log(myadventures);
   const toggleMenu = () => dispatch({type: 'SHOW_MENU'})
   const toggleMenuClass = showMenu ? 'showMenu' : 'hideMenu'
-  const startStop = route === '/mymap' ? renderStopButton() : renderStartButton()
-  const showMapButton = route === '/mymap' ? <span/> :  renderShowMapButton()
-  const showMyAdventuresButton = myadventures.length === 0 ? <span/> : renderMyAdventuresButton()
+  const startStopButton = route === '/mymap' ? renderStopButton() : route === '/play' ? <span/> : renderHomeButton()
+  const showMapButton = (route === '/mymap' || currentAdventure === null) ? <span/> : renderShowMapButton()
+  const showMyAdventuresButton = myadventures[1] === undefined ? <span/> : renderMyAdventuresButton()
   const renderMenuButtonIfLoggedIn = currentUser.username === undefined ? <span/> : renderMenuButton()
   return (
     <div className='header'>
@@ -16,7 +17,7 @@ module.exports = ({ state, dispatch }) => {
       <h1>{title}</h1>
       <div className={toggleMenuClass}>
         <ul>
-          {startStop}
+          {startStopButton}
           {showMapButton}
           {showMyAdventuresButton}
           <li onClick={() => dispatch({type: 'LOGOUT', payload: '/'})} >Logout</li>
@@ -41,7 +42,7 @@ module.exports = ({ state, dispatch }) => {
       }
     } className='stopButton' >Stop Adventure</li>
   }
-  function renderStartButton () {
+  function renderHomeButton () {
     return <li onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/play'})} >Home</li>
   }
   function renderMyAdventuresButton () {
