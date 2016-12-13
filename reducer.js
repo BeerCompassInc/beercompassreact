@@ -34,7 +34,6 @@ module.exports = (state, { type, payload }) => {
       return newState
     case 'GET_ADVENTURES':
       newState.myadventures = payload
-      newState.route = '/myAdventures'
       return newState
     case 'TOGGLE_MARKER_DISPLAY':
       const toggleMarker = findMarker(newState, payload)
