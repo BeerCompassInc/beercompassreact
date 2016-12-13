@@ -17,15 +17,24 @@
 
 .showMenu {
   z-index: 10;
-  width: 80vw;
+  width: 70vw;
   position: absolute;
   height: 100vh;
   top: 0;
   background-color: #404247;
   color: #F7BA7B; }
+  @media (min-width: 550px) {
+    .showMenu {
+      width: 60vw; } }
+  @media (min-width: 750px) {
+    .showMenu {
+      width: 40vw; } }
   @media (min-width: 1000px) {
     .showMenu {
       width: 30vw; } }
+  @media (min-width: 1200px) {
+    .showMenu {
+      width: 20vw; } }
   .showMenu ul {
     height: 100vh;
     margin-top: 30%;
@@ -40,7 +49,7 @@
 .menuButton {
   left: 0; }
 
-.login input, .signUp input {
+.login input, .signUp input, .myAdventuresDiv input {
   width: 90%;
   background-color: #F7BA7B;
   height: 13vh;
@@ -53,23 +62,8 @@
   border-bottom: 2px solid grey;
   border-radius: 5px; }
   @media (min-width: 1000px) {
-    .login input, .signUp input {
+    .login input, .signUp input, .myAdventuresDiv input {
       width: 60%; } }
-.login button, .signUp button {
-  height: 60px;
-  margin: 3vh;
-  line-height: 0px;
-  width: 70%;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Palanquin Dark", sans-serif;
-  border-radius: 5px; }
-  @media (max-width: 430px) {
-    .login button, .signUp button {
-      font-size: 20px; } }
-  @media (min-width: 1000px) {
-    .login button, .signUp button {
-      width: 40%; } }
 
 .header {
   height: 10vh; }
@@ -92,17 +86,6 @@
     .playContainer .play .poly {
       fill: #000; }
 
-.playDiv .mainTitle {
-  font-size: 60px; }
-  @media (max-width: 430px) {
-    .playDiv .mainTitle {
-      font-size: 48px; } }
-
-.loading .mainTitle {
-  font-size: 60px; }
-  @media (max-width: 430px) {
-    .loading .mainTitle {
-      font-size: 33px; } }
 .loading .beerGuys {
   width: 100vw; }
   @media (min-width: 750px) {
@@ -137,6 +120,29 @@ h1, h2, h3, h4, h5, h6 {
 button {
   background-color: #F7BA7B;
   border: none;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 6vh;
+  margin: 3vh;
+  line-height: 0px;
+  width: 70%;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Palanquin Dark", sans-serif;
+  border-radius: 5px; }
+  @media (max-width: 430px) {
+    button {
+      font-size: 20px; } }
+  @media (min-width: 1000px) {
+    button {
+      width: 40%; } }
+
+.mainTitle {
+  font-size: 60px; }
+  @media (max-width: 430px) {
+    .mainTitle {
+      font-size: 33px; } }
+
+.myAdventuresDiv {
+  overflow-y: scroll; }
 
 /*# sourceMappingURL=index.css.map */
