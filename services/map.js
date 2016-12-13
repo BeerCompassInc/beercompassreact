@@ -41,7 +41,6 @@ function buildMarker (marker) {
       lat: marker.lat,
       lng: marker.lng
     },
-    animation: marker.renderedYet ? null : google.maps.Animation.DROP,
     icon
   }
 }

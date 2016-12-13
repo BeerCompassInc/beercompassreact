@@ -25,7 +25,7 @@ const initState = {
   newUserDetails: {},
   location: {},
   markers: [],
-  myadventures: [],
+  myadventures: {},
   adventureToRender: null
 }
 
