@@ -33,7 +33,7 @@ module.exports = ({ state, dispatch }) => {
     </svg>
   }
   function renderShowMapButton () {
-    return <li onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})} >My Map</li>
+    return <li onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/mymap'})} >Current Adventure</li>
   }
   function renderStopButton () {
     return <li onClick={() => {
