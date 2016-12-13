@@ -33,6 +33,7 @@
   },
   "homepage": "https://beercompassinc.github.io/beercompassreact/",
   "devDependencies": {
+    "axios": "^0.15.3",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.16.0",
