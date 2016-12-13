@@ -3,10 +3,6 @@ import request from 'superagent'
 
 export default class extends Component {
 
-  shouldComponentUpdate() {
-    return false
-  }
-
   componentDidMount() {
 
     var wellington = new google.maps.LatLng(-41.296798, 174.773789);
@@ -54,34 +50,6 @@ export default class extends Component {
     })
   }
 }
-
-
-
-
-
-    // var point1 = new google.maps.LatLng(-41.296478, 174.773951)
-    // const directionsDisplay = new google.maps.DirectionsRenderer()
-    // const directionsService = new google.maps.DirectionsService()
-    // directionsDisplay.setMap(this.map)
-    // const start = new google.maps.LatLng(-41.2969048, 174.77381219999998)
-    // const end = new google.maps.LatLng(-41.295036, 174.774760)
-    // const waypts = [
-    //   {location: point1, stopover: true}]
-    //
-    //     directionsService.route({
-    //       origin: start,
-    //       destination: end,
-    //       waypoints: waypts,
-    //       optimizeWaypoints: true,
-    //       travelMode: 'WALKING'
-    //     }, function(res, status) {
-    //       console.log("Im in the res")
-    //       console.log('im the res ', res);
-    //         if(status === 'OK') {
-    //           directionsDisplay.setDirections(res)
-    //         }
-    //       })
-
   render() {
     return(
       <div id='map' ref='map' style={{width: '100vw', height: '89vh'}}></div>

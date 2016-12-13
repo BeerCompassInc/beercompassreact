@@ -31,7 +31,6 @@ function buildMarker (lat, lng, placeId) {
     lat,
     lng,
     showInfo: false,
-    renderedYet: false,
     placeId
   }
 }

@@ -11,7 +11,7 @@ import Loading from './components/loading'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import MyAdventures from './components/myadventures'
-import TrackAdventure from './components/trackAdventure'
+import PointsOfInterest from './components/pointsOfInterest'
 import AdventureMap from './components/adventureMap'
 
 import watchPosition from './services/watchMyPosition'
@@ -25,7 +25,7 @@ const initState = {
   newUserDetails: {},
   location: {},
   markers: [],
-  myadventures: [],
+  myadventures: {},
   adventureToRender: null
 }
 
@@ -41,7 +41,7 @@ const route = Router({ default: '/404' }, [
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
   ['/myAdventures', (params) => MyAdventures],
-  ['/trackAdventure', (params) => TrackAdventure],
+  ['/pointsOfInterest', (params) => PointsOfInterest],
   ['/adventureMap', (params) => AdventureMap]
 ])
 
