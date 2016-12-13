@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import Logo from './logo'
 import loginService from '../services/login'
 
 module.exports = ({ state, dispatch }) => {
@@ -12,14 +13,17 @@ module.exports = ({ state, dispatch }) => {
     loginService(state, dispatch)
   }
   return (
-    <div className='login'>
+    <div>
       <Header state={state} dispatch={dispatch} />
-      <form>
-        <input onChange={saveUsername} type='text' placeholder='Username' />
-        <input onChange={savePassword} type='password' placeholder='Password' />
-        <button onClick={loginButton} type='submit'>Login</button>
-      </form>
-      <button onClick={goToSignUp}>Create Account</button>
+      <Logo />
+      <div className='login containerWithLogo'>
+        <form>
+          <input onChange={saveUsername} type='text' placeholder='Username' />
+          <input onChange={savePassword} type='password' placeholder='Password' />
+          <button onClick={loginButton} type='submit'>Login</button>
+        </form>
+        <button onClick={goToSignUp}>Create Account</button>
+      </div>
     </div>
   )
 }

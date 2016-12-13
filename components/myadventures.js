@@ -1,12 +1,16 @@
 import React from 'react'
 import Header from './header'
+import Logo from './logo'
 
 module.exports = ({ state, dispatch }) => {
   const { myadventures } = state
   return (
     <div>
       <Header state={state} dispatch={dispatch} />
-      {renderAdventures()}
+      <Logo />
+      <div className='containerWithLogo'>
+        {renderAdventures()}
+      </div>
     </div>
   )
   function renderAdventures () {

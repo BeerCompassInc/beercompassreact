@@ -31,7 +31,6 @@ module.exports = (state, { type, payload }) => {
       let beerSize = size.reduce((a, b) => a + b)
       beerSize += 10
       timeMarker.beerSize = beerSize
-      console.log(timeMarker.beerSize);
       return newState
     case 'GET_ADVENTURES':
       newState.myadventures = payload
@@ -40,7 +39,6 @@ module.exports = (state, { type, payload }) => {
     case 'TOGGLE_MARKER_DISPLAY':
       const toggleMarker = findMarker(newState, payload)
       toggleMarker.showInfo = !toggleMarker.showInfo
-      toggleMarker.renderedYet = true
       return newState
     case 'LOGIN_SUCCESS':
       newState.currentUser = payload.user

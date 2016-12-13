@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header'
 import signupService from '../services/signup'
+import Logo from './logo'
 
 module.exports = ({ state, dispatch }) => {
   const saveUsername = (e) => dispatch({type: 'NEW_USER_DETAILS', payload: {change: 'username', value: e.target.value}})
@@ -13,12 +14,16 @@ module.exports = ({ state, dispatch }) => {
   return (
     <div className='signUp'>
       <Header state={state} dispatch={dispatch} />
-      <form>
-        <input onChange={saveUsername} type='text' placeholder='Username' />
-        <input onChange={saveEmail} type='text' placeholder='Email' />
-        <input onChange={savePassword} type='password' placeholder='Password' />
-        <button onClick={authorizeSignUp} type='submit'>Sign Up</button>
-      </form>
+      <Logo />
+      <div className='containerWithLogo'>
+        <form>
+          <input onChange={saveUsername} type='text' placeholder='Username' />
+          <input onChange={saveEmail} type='text' placeholder='Email' />
+          <input onChange={savePassword} type='password' placeholder='Password' />
+          <button onClick={authorizeSignUp} type='submit'>Sign Up</button>
+        </form>
+        <button onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/'})} type='submit'>Cancel</button>
+      </div>
     </div>
   )
 }
