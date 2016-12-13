@@ -8,7 +8,7 @@ module.exports = ({ state, dispatch }) => {
     <div>
       <Menu state={state} dispatch={dispatch} />
       <Logo />
-      <div className='containerWithLogo'>
+      <div className='containerWithLogo myAdventuresDiv'>
         {renderAdventures()}
       </div>
     </div>
