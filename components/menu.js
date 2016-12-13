@@ -4,7 +4,6 @@ import { storeAdventure } from '../services/saveAdventure'
 
 module.exports = ({ state, dispatch }) => {
   const { title, route, showMenu, currentUser, myadventures, currentAdventure } = state
-  console.log(myadventures);
   const toggleMenu = () => dispatch({type: 'SHOW_MENU'})
   const toggleMenuClass = showMenu ? 'showMenu' : 'hideMenu'
   const startStopButton = route === '/mymap' ? renderStopButton() : route === '/play' ? <span/> : renderHomeButton()
