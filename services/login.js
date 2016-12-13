@@ -1,4 +1,5 @@
 import request from 'superagent'
+import getAdventures from './getAdventures'
 
 module.exports = ({ loginDetails }, dispatch) => {
   const { username, password } = loginDetails
@@ -8,6 +9,7 @@ module.exports = ({ loginDetails }, dispatch) => {
     .withCredentials()
     .end((err, res) => {
       if (!err) {
+        getAdventures(dispatch)
         dispatch({ type: 'LOGIN_SUCCESS', payload: res.body })
       }
       else dispatch({ type: 'CHANGE_ROUTE', payload: '/' })
