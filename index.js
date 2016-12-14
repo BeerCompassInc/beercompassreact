@@ -26,7 +26,11 @@ const initState = {
   location: {},
   markers: [],
   myadventures: {},
-  adventureToRender: null
+  adventureToRender: null,
+  pointsOfInterest: {
+    interest: 'pubs',
+    iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'
+  }
 }
 
 const store = createStore(reducer, initState)
