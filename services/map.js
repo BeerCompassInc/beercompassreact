@@ -34,7 +34,7 @@ function makeMarkers (markers, dispatch) {
       key={i} {...markerOnMap} >
       {marker.showInfo && (
         <InfoWindow className='marker'>
-          <p>{marker.placeId}</p>
+          <p>{marker.address}</p>
         </InfoWindow>
       )}
     </Marker>
