@@ -1,6 +1,7 @@
+import clone from 'clone'
 
 module.exports = (state, { type, payload }) => {
-
+  const newState = clone(state)
   switch (type) {
     case 'CHANGE_ROUTE':
       return { ...state, route: payload, showMenu: false }
@@ -19,25 +20,20 @@ module.exports = (state, { type, payload }) => {
       markers.push(payload)
       return { ...state, location: payload, markers }
     case 'ADD_TIME_TO_MARKER':
-      const timeMarker = findMarker(state, payload)
+      newState.location = payload
+      const timeMarker = findMarker(newState, payload)
       timeMarker.time.push(timeMarker.time[timeMarker.time.length - 1]++)
       const size = timeMarker.time.map((time) => 3 / time)
       let beerSize = size.reduce((a, b) => a + b)
       beerSize += 10
       timeMarker.beerSize = beerSize
-      return { ...state, location: payload }
+      return newState
     case 'GET_ADVENTURES':
       return { ...state, myadventures: payload }
     case 'TOGGLE_MARKER_DISPLAY':
-      var newState = Object.assign({}, state)
-      var copy = Object.assign({}, state);
-      console.log(state)
-      console.log(newState);
-      console.log(state == newState);
-      console.log(state == copy);
-      var toggleMarker = findMarker(newState, payload)
-      toggleMarker.showInfo = !toggleMarker.showInfo
-      return { ...newState }
+     const toggleMarker = findMarker(newState, payload)
+     toggleMarker.showInfo = !toggleMarker.showInfo
+     return newState
     case 'LOGIN_SUCCESS':
       return { ...state, currentUser: payload, loginDetails: {}, route: '/play' }
     case 'LOGOUT':
