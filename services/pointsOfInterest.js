@@ -11,9 +11,7 @@ export default class extends Component {
   }
   render() {
     return(
-      <div>
-        <div id='poiMap' ref='map' style={{width: '100vw', height: '90vh'}}></div>
-      </div>
+      <div ref='map' className='mapDiv' ></div>
     )
   }
   renderMap () {
@@ -27,8 +25,8 @@ export default class extends Component {
     }
     this.googleMap = new google.maps.Map(refs.map , mapOptions)
     this.renderMarkers('pubs', 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png')
-    this.renderMarkers('burgers', 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png')
-    this.renderMarkers('kebebs', 'https://cdn1.iconfinder.com/data/icons/fast-foody/64/kebab-512.png')
+    setTimeout(() => this.renderMarkers('burgers', 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png'), 1500)
+    setTimeout(() => this.renderMarkers('kebebs', 'https://cdn1.iconfinder.com/data/icons/fast-foody/64/kebab-512.png'), 3000)
   }
   renderMarkers (interest, iconImage) {
     const { googleMap, props } = this
@@ -56,11 +54,12 @@ export default class extends Component {
       var marker = new google.maps.Marker({
         map: googleMap,
         position: place.geometry.location,
-        icon
+        icon,
+        animation: google.maps.Animation.DROP
       })
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(place.name)
-        infowindow.open(googleMap)
+        infowindow.open(googleMap, this)
       })
     }
   }
