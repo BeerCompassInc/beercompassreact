@@ -17,7 +17,7 @@ export default class extends Component {
   render() {
     return(
       <div>
-        <div ref='map' style={{height: '82vh'}}></div>
+        <div ref='map' style={{height: '83vh'}}></div>
         <div>
           <button className='pointsOfInterest' onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'pubs', iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'}})}>Pubs</button>
           <button className='pointsOfInterest' onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'burgers', iconImage: 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png'}})}>Burgers</button>
