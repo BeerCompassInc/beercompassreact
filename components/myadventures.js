@@ -16,7 +16,7 @@ module.exports = ({ state, dispatch }) => {
   function renderAdventures () {
     const adventureIds = Object.keys(myadventures)
     return adventureIds.map((id) =>
-      <button
+      <button className='buttons'
         onClick={() => dispatch({type:'CHANGE_ADVENTURE_TO_RENDER', payload: id}) }
         key={id}
           >Adventure {id}
