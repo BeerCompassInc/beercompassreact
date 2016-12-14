@@ -4,8 +4,6 @@ module.exports = (state, { type, payload }) => {
   const newState = clone(state)
 
   switch (type) {
-    case 'INIT':
-      return newState
     case 'CHANGE_ROUTE':
       newState.route = payload
       newState.showMenu = false
@@ -62,6 +60,9 @@ module.exports = (state, { type, payload }) => {
     case 'CHANGE_ADVENTURE_TO_RENDER':
       newState.adventureToRender = payload
       newState.route = '/adventureMap'
+    case 'CHANGE_POI':
+      newState.pointsOfInterest = payload
+      return newState
     default:
       return newState
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { createStore } from 'redux'
 import Router from 'sheet-router'
 
@@ -11,6 +11,7 @@ import Loading from './components/loading'
 import Play from './components/play'
 import MyMap from './components/mymap'
 import MyAdventures from './components/myadventures'
+import PointsOfInterest from './components/pointsOfInterest'
 import AdventureMap from './components/adventureMap'
 
 import watchPosition from './services/watchMyPosition'
@@ -25,12 +26,15 @@ const initState = {
   location: {},
   markers: [],
   myadventures: {},
-  adventureToRender: null
+  adventureToRender: null,
+  pointsOfInterest: {
+    interest: 'pubs',
+    iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'
+  }
 }
 
 const store = createStore(reducer, initState)
 const { getState, dispatch, subscribe } = store
-
 watchPosition(store)
 
 const route = Router({ default: '/404' }, [
@@ -40,12 +44,13 @@ const route = Router({ default: '/404' }, [
   ['/play', (params) => Play],
   ['/mymap', (params) => MyMap],
   ['/myAdventures', (params) => MyAdventures],
+  ['/pointsOfInterest', (params) => PointsOfInterest],
   ['/adventureMap', (params) => AdventureMap]
 ])
 
 subscribe(() => {
   const Component = route(getState().route)
-  ReactDOM.render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
+  render(<Component state={getState()} dispatch={dispatch} />, document.querySelector('main'))
 })
 
 dispatch({type: 'INIT'})
