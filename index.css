@@ -47,7 +47,8 @@
     border-bottom: 1px solid #E2E2E2; }
 
 .menuButton {
-  left: 0; }
+  left: 0;
+  margin: 2vh; }
 
 .login input, .signUp input, .myAdventuresDiv input {
   width: 90%;
