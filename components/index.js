@@ -20,9 +20,9 @@ module.exports = ({ state, dispatch }) => {
         <form>
           <input onChange={saveUsername} type='text' placeholder='Username' />
           <input onChange={savePassword} type='password' placeholder='Password' />
-          <button onClick={loginButton} type='submit'>Login</button>
+          <button className='buttons' onClick={loginButton} type='submit'>Login</button>
         </form>
-        <button onClick={goToSignUp}>Create Account</button>
+        <button className='buttons' onClick={goToSignUp}>Create Account</button>
       </div>
     </div>
   )
