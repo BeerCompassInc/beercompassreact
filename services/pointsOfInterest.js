@@ -17,11 +17,11 @@ export default class extends Component {
   render() {
     return(
       <div>
-        <div ref='map' className='mapDiv' style={{height: '83vh'}}></div>
-        <div style={{height: '7vh'}}>
-          <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'pubs', iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'}})}>Pubs</button>
-          <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'burgers', iconImage: 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png'}})}>Burgers</button>
-          <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'liquor store', iconImage: 'http://www.urbanliquor.ca/wp-content/uploads/2015/06/WineIcon1.png'}})}>Liquor</button>
+        <div ref='map' style={{height: '83vh'}}></div>
+        <div>
+          <button className='pointsOfInterest' onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'pubs', iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'}})}>Pubs</button>
+          <button className='pointsOfInterest' onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'burgers', iconImage: 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png'}})}>Burgers</button>
+          <button className='pointsOfInterest' onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'liquor store', iconImage: 'http://www.urbanliquor.ca/wp-content/uploads/2015/06/WineIcon1.png'}})}>Liquor</button>
         </div>
       </div>
     )
