@@ -13,8 +13,10 @@ module.exports = ({getState, dispatch}) => {
       .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDNqZpfY5wCQjq78QqttpZJ05714XxQTuI`)
       .end((err, res) => {
         if (!err) {
-          const placeId = res.body.results[0].place_id
-          const newMarker = buildMarker(latitude, longitude, placeId)
+          const response = res.body.results[0]
+          const placeId = response.place_id
+          const address = response.formatted_address
+          const newMarker = buildMarker(latitude, longitude, placeId, address)
           if (!hasBeenVisited(getState, placeId)) {
             newMarker.time = [1]
             newMarker.beerSize = 15
@@ -26,12 +28,13 @@ module.exports = ({getState, dispatch}) => {
   })
 }
 
-function buildMarker (lat, lng, placeId) {
+function buildMarker (lat, lng, placeId, address) {
   return {
     lat,
     lng,
     showInfo: false,
-    placeId
+    placeId,
+    address
   }
 }
 

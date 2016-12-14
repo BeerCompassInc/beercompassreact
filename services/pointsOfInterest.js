@@ -21,7 +21,7 @@ export default class extends Component {
         <div style={{height: '7vh'}}>
           <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'pubs', iconImage: 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png'}})}>Pubs</button>
           <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'burgers', iconImage: 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png'}})}>Burgers</button>
-          <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'liquor store', iconImage: 'https://cdn3.iconfinder.com/data/icons/set-of-beer-attributes-icons/64/Beer_icons_3264px-09-128.png'}})}>Liquor</button>
+          <button style={{width: '33.33vw', borderRadius: 0, height: '7vh', margin: 0}} onClick={() => this.props.dispatch({type: 'CHANGE_POI', payload: {interest: 'liquor store', iconImage: 'http://www.urbanliquor.ca/wp-content/uploads/2015/06/WineIcon1.png'}})}>Liquor</button>
         </div>
       </div>
     )
@@ -68,7 +68,11 @@ export default class extends Component {
         icon
       })
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name)
+        const info = `
+          ${place.name}<br>
+          ${place.formatted_address}
+          `
+        infowindow.setContent(info)
         infowindow.open(googleMap, this)
       })
       _this.markers.push(marker)
