@@ -20,9 +20,9 @@ module.exports = ({ state, dispatch }) => {
           <input onChange={saveUsername} type='text' placeholder='Username' />
           <input onChange={saveEmail} type='text' placeholder='Email' />
           <input onChange={savePassword} type='password' placeholder='Password' />
-          <button onClick={authorizeSignUp} type='submit'>Sign Up</button>
+          <button className='buttons' onClick={authorizeSignUp} type='submit'>Sign Up</button>
         </form>
-        <button onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/'})} type='submit'>Cancel</button>
+        <button className='buttons' onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/'})} type='submit'>Cancel</button>
       </div>
     </div>
   )
