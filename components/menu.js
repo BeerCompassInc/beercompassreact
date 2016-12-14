@@ -19,6 +19,7 @@ module.exports = ({ state, dispatch }) => {
           {startStopButton}
           {showMapButton}
           {showMyAdventuresButton}
+          <li onClick={() => dispatch({type: 'CHANGE_ROUTE', payload: '/pointsOfInterest'})} >Points of Interest</li>
           <li onClick={() => dispatch({type: 'LOGOUT', payload: '/'})} >Logout</li>
         </ul>
       </div>
