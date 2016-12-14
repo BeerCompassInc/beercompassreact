@@ -129,7 +129,7 @@ button {
   border-radius: 5px; }
   @media (max-width: 430px) {
     .buttons {
-      font-size: 30px; } }
+      font-size: 20px; } }
   @media (min-width: 1000px) {
     .buttons {
       width: 40%; } }
