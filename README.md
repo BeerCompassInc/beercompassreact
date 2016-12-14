@@ -6,10 +6,9 @@
 
 https://beercompassinc.github.io/beercompassreact/
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+![gif](http://p.fod4.com/upload/aff3567c9abaad4b798a350dc1e1b1a3/XTMGjFZTuSj9ypajCGtl_Beer%20Big%20Gulp.gif)
 
-![image](/imagesForReadme/play.png)
-![image](/imagesForReadme/myMap.png)
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ### install
 
@@ -31,3 +30,6 @@ live reloading app at `http://localhost:9966/`
 ```
 npm run deploy
 ```
+
+![image](/imagesForReadme/play.png)
+![image](/imagesForReadme/myMap.png)
