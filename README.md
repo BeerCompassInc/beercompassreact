@@ -4,7 +4,7 @@
 
 ##Live Site
 
-https://beercompassinc.github.io/beercompassreact/
+http://abc.beercompass.xyz/
 
 ![gif](https://media.giphy.com/media/CuNDSZsB4W9PO/giphy.gif)
 
