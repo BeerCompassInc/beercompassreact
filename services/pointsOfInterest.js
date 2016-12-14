@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { GeolocationMarker } from 'geolocation-marker'
+
+import mapStyles from './mapStyles'
 
 export default class extends Component {
   constructor(props) {
@@ -21,10 +22,10 @@ export default class extends Component {
     var mapOptions = {
         zoom: 15,
         center: location,
-        options: { streetViewControl: false, mapTypeControl: false }
+        options: { streetViewControl: false, mapTypeControl: false },
+        styles: mapStyles()
     }
     this.googleMap = new google.maps.Map(refs.map , mapOptions)
-    const GeoMarker = new GeolocationMarker(this.googleMap)
     this.renderMarkers('pubs', 'https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/Beer-512.png')
     this.renderMarkers('burgers', 'http://www.freeiconspng.com/uploads/hamburgers-icon-15.png')
     this.renderMarkers('kebebs', 'https://cdn1.iconfinder.com/data/icons/fast-foody/64/kebab-512.png')
