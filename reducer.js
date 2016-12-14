@@ -2,25 +2,23 @@ import clone from 'clone'
 
 module.exports = (state, { type, payload }) => {
   const newState = clone(state)
-
   switch (type) {
     case 'CHANGE_ROUTE':
-      newState.route = payload
-      newState.showMenu = false
-      return newState
+      return { ...state, route: payload, showMenu: false }
     case 'SHOW_MENU':
-      newState.showMenu = !newState.showMenu
-      return newState
+      return { ...state, showMenu: !state.showMenu }
     case 'UPDATE_LOGIN_DETAILS':
-      newState.loginDetails[payload.change] = payload.value
-      return newState
+      const loginDetails = { ...state.loginDetails }
+      loginDetails[payload.change] = payload.value
+      return { ...state, loginDetails }
     case 'NEW_USER_DETAILS':
-      newState.newUserDetails[payload.change] = payload.value
-      return newState
+      const newUserDetails = { ...state.newUserDetails }
+      newUserDetails[payload.change] = payload.value
+      return { ...state, newUserDetails }
     case 'ADD_NEW_MARKER':
-      newState.location = payload
-      newState.markers.push(payload)
-      return newState
+      var markers = [ ...state.markers ]
+      markers.push(payload)
+      return { ...state, location: payload, markers }
     case 'ADD_TIME_TO_MARKER':
       newState.location = payload
       const timeMarker = findMarker(newState, payload)
@@ -31,40 +29,27 @@ module.exports = (state, { type, payload }) => {
       timeMarker.beerSize = beerSize
       return newState
     case 'GET_ADVENTURES':
-      newState.myadventures = payload
-      return newState
+      return { ...state, myadventures: payload }
     case 'TOGGLE_MARKER_DISPLAY':
-      const toggleMarker = findMarker(newState, payload)
-      toggleMarker.showInfo = !toggleMarker.showInfo
-      return newState
+     const toggleMarker = findMarker(newState, payload)
+     toggleMarker.showInfo = !toggleMarker.showInfo
+     return newState
     case 'LOGIN_SUCCESS':
-      newState.currentUser = payload.user
-      newState.loginDetails = {}
-      newState.route = '/play'
-      return newState
+      return { ...state, currentUser: payload, loginDetails: {}, route: '/play' }
     case 'LOGOUT':
-      newState.currentUser = {}
-      newState.myadventures = []
-      newState.route = payload
-      newState.showMenu = !newState.showMenu
-      return newState
+      return { ...state, currentUser: {}, myadventures: [], route: payload, showMenu: !state.showMenu }
     case 'SAVE_CURRENT_ADVENTURE_ID':
-      newState.currentAdventure = payload
-      return newState
+      return { ...state, currentAdventure: payload }
     case 'STOP_ADVENTURE':
-      newState.markers = []
-      newState.route = '/myAdventures'
-      newState.markers.push(newState.location)
-      newState.currentAdventure = null
-      return newState
+      var markers = [ ...state.markers ]
+      markers.push(state.location)
+      return { ...state, markers: [], route: '/myAdventures', currentAdventure: null, markers }
     case 'CHANGE_ADVENTURE_TO_RENDER':
-      newState.adventureToRender = payload
-      newState.route = '/adventureMap'
+      return { ...state, adventureToRender: payload, route: '/adventureMap' }
     case 'CHANGE_POI':
-      newState.pointsOfInterest = payload
-      return newState
+      return { ...state, pointsOfInterest: payload }
     default:
-      return newState
+      return { ...state }
   }
 }
 

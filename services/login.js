@@ -10,7 +10,7 @@ module.exports = ({ loginDetails }, dispatch) => {
     .end((err, res) => {
       if (!err) {
         getAdventures(dispatch)
-        dispatch({ type: 'LOGIN_SUCCESS', payload: res.body })
+        dispatch({ type: 'LOGIN_SUCCESS', payload: res.body.user })
       }
       else dispatch({ type: 'CHANGE_ROUTE', payload: '/' })
     })

@@ -140,20 +140,20 @@ test('itterates the time by 1', (t) => {
 test('test marker display/not display info', (t) => {
 
   const state = {
-    markers: [{}]
+    markers: [
+      {name: 'lemon', showInfo: false},
+      {name: 'notlemon', showInfo: false},
+    ]
   }
 
-  const payload = {
-    markers: [{
-    "showInfo": false
-    }]
-  }
+  const payload = {name: 'lemon', showInfo: false}
 
   freeze(state)
 
   const expected = {
     markers: [
-      {showInfo: true}
+      {name: 'lemon', showInfo: true},
+      {name: 'notlemon', showInfo: false},
     ]
   }
 
@@ -171,10 +171,8 @@ test('test successful login', (t) => {
   }
 
   const payload = {
-    "user": {
-      "user_id": 1,
-      "username": "sowisburger"
-    }
+    "user_id": 1,
+    "username": "sowisburger"
   }
 
   freeze(state)
@@ -263,11 +261,18 @@ test('test stopping current adventure', (t) => {
       long: 1234,
       showInfo: false
     },
-    markers: [{
-      lat: 1234,
-      long: 1234,
-      showInfo: false
-    }],
+    markers: [
+      {
+        lat: 1204,
+        long: 1734,
+        showInfo: false
+      },
+      {
+        lat: 1234,
+        long: 1234,
+        showInfo: false
+      }
+    ],
     route: '/myAdventures',
     currentAdventure: null
   }
